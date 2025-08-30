@@ -70,7 +70,7 @@ nav a:hover {
 
     /* Sfondo immagine */
     background: 
-        linear-gradient(rgba(37, 161, 142, 0.7), rgba(37, 161, 142, 1)), /* overlay trasparente */
+        linear-gradient(rgba(0, 78, 100, 0.7), rgba(0, 78, 100, 1)), /* overlay trasparente */
         url("images/brain.png") no-repeat center center;
     background-size: 100%;
 }
@@ -395,3 +395,19 @@ nav a {
     border-radius: 50%; /* rende l’immagine circolare (opzionale) */
 }
 
+.download-btn {
+    margin-top: 1.5rem;
+    display: inline-block;
+    background: #25A18E;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background: var(--dark-blue);
+    color: white;
+}
