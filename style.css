@@ -120,36 +120,70 @@ footer {
 }
 
 /* 📱 RESPONSIVE */
-/* MENU su mobile */
+/* Header flex desktop */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--dark-blue);
+    position: relative;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+/* Desktop menu */
+nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hamburger hidden desktop */
+.menu-toggle {
+    display: none;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-left: auto; /* spinge a destra */
+        z-index: 1100;
+    }
+
     nav ul {
-        display: none;
+        display: none; /* nascosto di default */
         flex-direction: column;
-        background: var(--dark-blue);
         position: absolute;
         top: 100%;
         right: 0;
+        background: var(--dark-blue);
         width: 200px;
         padding: 1rem;
-        z-index: 1000; /* 👈 questo lo porta sopra lo sfondo */
+        gap: 1rem;
     }
 
     nav ul.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-        z-index: 1100; /* anche il bottone sopra */
-        position: relative;
+        display: flex; /* mostra quando attivo */
     }
 }
 
-/* Assicurati che header stia sopra al resto */
-header {
-    position: relative;
-    z-index: 999;
-}
+
 
 
 /* LOGO */
@@ -319,7 +353,7 @@ header {
 
 .contact-form button {
     align-self: flex-start;
-    background-color: #00A5CF;
+    background-color: #25A18E;
     color: white;
     border: none;
     padding: 0.9rem 1.8rem;
