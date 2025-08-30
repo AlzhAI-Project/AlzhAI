@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlzhAI - Contacts</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/AlzhAI_transparent_light.png" alt="AlzhAI Logo">
+        </a>
+        <button class="menu-toggle" aria-label="Open menu">☰</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="team.html">The Team</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact">
+            <div class="contact-hero">
+                <h2>Contact Us</h2>
+                <p>We’d love to hear from you! Fill out the form below and we’ll get back to you soon.</p>
+            </div>
+
+            <form
+                action="https://formspree.io/f/xqadpovl"
+                method="POST"
+                class="contact-form"
+            >
+                <div class="form-group">
+                <label for="email">Your email:</label>
+                <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                <label for="message">Your message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>alzhai.project@gmail.com</p>
+        <p>© 2025 AlzhAI. All Rights reserved.</p>
+    </footer>
+</body>
+</html>

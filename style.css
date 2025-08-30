@@ -1,0 +1,362 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap');
+
+:root {
+    --dark-blue: #004E64;
+    --light-blue: #00A5CF;
+    --green: #25A18E;
+    --light-bg: #EBF2FA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Satoshi', sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-blue);
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: var(--dark-blue);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+/* MENU */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+/* Hamburger button hidden on desktop */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    color: white;
+
+    /* Sfondo immagine */
+    background: 
+        linear-gradient(rgba(0, 78, 100, 0.7), rgba(0, 78, 100, 1)), /* overlay trasparente */
+        url("images/brain.png") no-repeat center center;
+    background-size: 100%;
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--light-bg);
+    color: var(--dark-blue);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--green);
+    color: white;
+}
+
+
+/* ABOUT */
+.about {
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background: var(--dark-blue);
+    color: white;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
+/* 📱 RESPONSIVE */
+/* MENU su mobile */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: var(--dark-blue);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        z-index: 1000; /* 👈 questo lo porta sopra lo sfondo */
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 1100; /* anche il bottone sopra */
+        position: relative;
+    }
+}
+
+/* Assicurati che header stia sopra al resto */
+header {
+    position: relative;
+    z-index: 999;
+}
+
+
+/* LOGO */
+.logo img {
+    height: 60px;     /* regola la dimensione */
+    width: auto;
+    display: block;
+}
+
+/* Product hero */
+.product-hero {
+    background: url("images/mri.jpg") no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+.product-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(37, 161, 142, 0.9); /* overlay scuro per leggibilità */
+}
+
+/* Ensures text is above overlay */
+.product-hero h2,
+.product-hero p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Product Vision */
+.product-vision {
+    padding: 3rem 2rem;
+    background-color: #EBF2FA;
+    text-align: center;
+}
+
+/* Features grid */
+.features {
+    padding: 3rem 2rem;
+    background-color: white;
+}
+
+.feature-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-top: 2rem;
+}
+
+.feature {
+    background: #EBF2FA;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* CTA */
+.cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #25A18E;
+    color: white;
+}
+
+.cta .btn {
+    background-color: #004E64;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta .btn:hover {
+    background-color: #00A5CF;
+}
+
+
+/* TEAM PAGE */
+.team-hero {
+    background-color: #25A18E;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.team-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    padding: 3rem 2rem;
+    background-color: #EBF2FA;
+    text-align: center;
+    max-width: 800px;   /* larghezza massima */
+    margin: 0 auto;     /* centra la griglia */
+}
+
+.team-member {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.team-member img {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+/* CONTACT PAGE */
+
+.contact-hero {
+    background-color: #25A18E;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.contact-form {
+    padding: 3rem 2rem;
+    background-color: #EBF2FA;
+    max-width: 600px;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #004E64;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #00A5CF;
+    outline: none;
+}
+
+.contact-form button {
+    align-self: flex-start;
+    background-color: #00A5CF;
+    color: white;
+    border: none;
+    padding: 0.9rem 1.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #004E64;
+}
+
+/* RESPONSIVE: su mobile tutto rimane full-width */
+@media (max-width: 600px) {
+    .contact-form {
+        padding: 2rem 1rem;
+    }
+
+    .contact-form button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+.team-member {
+    text-align: center;
+    max-width: 200px;   /* larghezza massima del box */
+    margin: 0 auto;     /* centra i box */
+}
+
+.team-member img {
+    width: 100%;        /* riempie la larghezza del div */
+    height: auto;       /* mantiene proporzioni */
+    max-width: 150px;   /* non cresce oltre */
+    border-radius: 50%; /* rende l’immagine circolare (opzionale) */
+}
