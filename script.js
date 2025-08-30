@@ -1,9 +1,8 @@
-// Script per menu a hamburger
 document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.querySelector(".menu-toggle");
-    const navMenu = document.querySelector("nav ul");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu ul");
 
-    toggleBtn.addEventListener("click", () => {
+    menuToggle.addEventListener("click", () => {
         navMenu.classList.toggle("active");
     });
 });
