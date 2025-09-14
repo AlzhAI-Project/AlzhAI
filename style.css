@@ -70,7 +70,7 @@ nav a:hover {
 
     /* Sfondo immagine */
     background: 
-        linear-gradient(rgba(0, 78, 100, 0.7), rgba(0, 78, 100, 1)), /* overlay trasparente */
+        linear-gradient(rgba(110, 176, 193, 0.636), rgba(0, 78, 100, 1)), /* overlay trasparente */
         url("images/brain.png") no-repeat center center;
     background-size: 100%;
 }
@@ -411,3 +411,4 @@ nav a {
     background: var(--dark-blue);
     color: white;
 }
+
