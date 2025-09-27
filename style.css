@@ -1,7 +1,7 @@
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap');
 
 :root {
-    --dark-blue: #004E64;
+    --dark-blue: #004e64;
     --light-blue: #00A5CF;
     --green: #25A18E;
     --light-bg: #EBF2FA;
@@ -20,6 +20,14 @@ body {
     line-height: 1.6;
 }
 
+
+@media (max-width: 768px) {
+    header {
+        background: transparent;
+        z-index: 1100;
+    }
+}
+
 /* HEADER */
 header {
     background: var(--dark-blue);
@@ -35,32 +43,73 @@ header h1 {
     font-size: 1.8rem;
 }
 
-/* MENU */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: var(--green);
-}
-
-/* Hamburger button hidden on desktop */
+/* 🔹 Hamburger */
 .menu-toggle {
-    display: none;
-    font-size: 2rem;
+    position: relative;
+    width: 32px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
     background: none;
     border: none;
-    color: white;
-    cursor: pointer;
+    z-index: 1100;
 }
+
+.menu-toggle span {
+    display: block;
+    height: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.35s ease;
+    transform-origin: center;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(9px, -9px);
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        position: absolute;
+        top: 100%;  /* subito sotto l’header */
+        right: 1rem;
+        width: 220px;
+        padding: 1.5rem;
+        gap: 1rem;
+        background: rgba(0, 78, 100, 1); /* trasparenza più evidente */
+        border-radius: 0 0 16px 16px; /* solo angoli inferiori */
+        box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 1050;
+    }
+
+
+    nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+
+
+
 
 /* HERO */
 .hero {
