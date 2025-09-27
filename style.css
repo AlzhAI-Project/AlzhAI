@@ -85,21 +85,58 @@ nav a:hover {
     margin-bottom: 2rem;
 }
 
-.btn {
+/* Stile base glass effect */
+.btn, 
+.download-btn {
     display: inline-block;
-    background: var(--light-bg);
-    color: var(--dark-blue);
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    font-weight: bold;
+    padding: 0.9rem 1.8rem;
+    border-radius: 12px;
+    font-weight: 600;
     text-decoration: none;
-    transition: 0.3s;
+    position: relative;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
 }
 
-.btn:hover {
-    background: var(--green);
-    color: white;
+/* Learn More → testo bianco */
+.hero .btn {
+    color: #fff;
 }
+
+/* Download Pitch Deck → testo verde acqua */
+.download-btn {
+    color: #25A18E;
+}
+
+/* Hover: più brillante e glow */
+.btn:hover, 
+.download-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25), 0 0 15px rgba(37, 161, 142, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Effetto highlight liquido */
+.btn::before, 
+.download-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at top left,
+        rgba(255, 255, 255, 0.6),
+        transparent 60%
+    );
+    opacity: 0.6;
+    pointer-events: none;
+}
+
 
 
 /* ABOUT */
@@ -219,7 +256,7 @@ nav a {
 /* Product Vision */
 .product-vision {
     padding: 3rem 2rem;
-    background-color: #EBF2FA;
+    background-color: #ebf2fa;
     text-align: center;
 }
 
@@ -236,18 +273,44 @@ nav a {
     margin-top: 2rem;
 }
 
+/* Feature con effetto liquid glass */
 .feature {
-    background: #EBF2FA;
-    border-radius: 12px;
+    position: relative;
+    background: rgba(235, 242, 250, 0.8);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
     padding: 1.5rem;
     text-align: center;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
+/* Hover: glow morbido e sollevamento */
 .feature:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25),
+                0 0 20px rgba(37, 161, 142, 0.4);
+    transform: translateY(-6px);
 }
+
+/* Highlight liquido */
+.feature::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at top left,
+        rgba(255, 255, 255, 0.5),
+        transparent 70%
+    );
+    opacity: 0.7;
+    pointer-events: none;
+}
+
 
 /* CTA */
 .cta {
