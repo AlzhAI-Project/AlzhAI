@@ -3,67 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlzhAI - Contacts</title>
+    <title>AlzhAI - Contact</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/icona.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/icona.png">
-    <link rel="shortcut icon" href="images/icona.png">
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">
-            <img src="images/AlzhAI_transparent_light.png" alt="AlzhAI Logo">
-        </a>
-        <!-- Bottone hamburger -->
-        <button class="menu-toggle" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <a href="index.html" class="logo"><img src="images/AlzhAI_transparent_dark.png" alt="Logo"></a>
+        <button class="menu-toggle"><span></span><span></span><span></span></button>
         <nav class="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="product.html">Product</a></li>
-                <li><a href="team.html">The Team</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contacts.html" class="active-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="contact">
-            <div class="contact-hero">
-                <h2>Contact Us</h2>
-                <p>We’d love to hear from you! Fill out the form below and we’ll get back to you soon.</p>
+        <section class="section-padding" style="margin-top: 4rem;">
+            <div class="container">
+                <div class="contact-split reveal">
+                    <div>
+                        <h1>Get in touch</h1>
+                        <p style="margin-bottom: 2rem;">
+                            Whether you are a clinical center looking to adopt our tech, or an investor interested in our journey, we'd love to hear from you.
+                        </p>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <h3 style="font-size: 1.1rem; color: var(--color-primary-dark);">Email Us</h3>
+                            <a href="mailto:team@alzh-ai.com" style="color: var(--color-accent); font-weight: 700; font-size: 1.2rem;">team@alzh-ai.com</a>
+                        </div>
+                        
+                        <div style="margin-top: 3rem;">
+                            <p style="font-size: 0.9rem;">📍 Based in Milan, Italy</p>
+                        </div>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 2rem; border-radius: 16px;">
+                        <form action="https://formspree.io/f/xqadpovl" method="POST">
+                            <label for="email" style="display:block; margin-bottom: 0.5rem; font-weight: 700;">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="name@company.com" class="form-input" required>
+
+                            <label for="message" style="display:block; margin-bottom: 0.5rem; font-weight: 700;">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="How can we help?" class="form-input" required></textarea>
+
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <form
-                action="https://formspree.io/f/xqadpovl"
-                method="POST"
-                class="contact-form"
-            >
-                <div class="form-group">
-                <label for="email">Your email:</label>
-                <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                <label for="message">Your message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-
-                <button type="submit">Send</button>
-            </form>
         </section>
-
     </main>
 
     <footer>
-        <p>alzhai.project@gmail.com</p>
-        <p>© 2025 AlzhAI. All Rights reserved.</p>
+        <img src="images/AlzhAI_transparent_light.png" alt="Logo" style="height: 40px; margin: 0 auto 2rem auto; opacity: 0.8;">
+        <p>team@alzh-ai.com</p>
+        <p>&copy; 2025 AlzhAI.</p>
     </footer>
 </body>
 </html>
