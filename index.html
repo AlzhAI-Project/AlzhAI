@@ -1,75 +1,141 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlzhAI</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/icona.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/icona.png">
-    <link rel="shortcut icon" href="images/icona.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/icona.png">
 </head>
-
 
 <body>
     <header>
-        <!-- LOGO al posto del titolo -->
         <a href="index.html" class="logo">
-            <img src="images/AlzhAI_transparent_light.png" alt="AlzhAI Logo">
+            <img src="images/AlzhAI_transparent_dark.png" alt="AlzhAI Logo">
         </a>
         
-        <!-- Bottone hamburger -->
         <button class="menu-toggle" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
 
-    <nav class="nav-menu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="product.html">Product</a></li>
-            <li><a href="team.html">The Team</a></li>
-            <li><a href="contacts.html">Contacts</a></li>
-        </ul>
-    </nav>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html" class="active-link">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <h2>Detecting Alzheimer While There is Still Time</h2>
-            <p>AI-driven solutions for early Alzheimer’s detection.</p>
-            <a href="product.html" class="btn">Learn More</a>
+        <div class="hero-sticky-container">
+            <section class="hero-modern">
+                <div class="container hero-grid">
+                    <div class="hero-text reveal">
+                        <span class="hero-tag" style="color: var(--color-primary-dark);">Setting a New Standard for Early Detection</span>
+                        <h1>Detecting Alzheimer’s <br> <span class="text-gradient">When it Still Matters.</span></h1>
+                        <p style="margin: 1.5rem 0 2.5rem 0;">
+                            A scalable platform combining clinical data and cognitive assessments with Retinal Hyperspectral Imaging (HSI) 
+                            to identify Alzheimer’s Disease years in advance, before the brain damages become irreversible.<br> Non-invasive. Accessible. Precise.
+                        </p>
+                        <div class="hero-btns">
+                            <a href="product.html" class="btn btn-primary">Our Technology</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual reveal">
+                        <div class="blob-image-container">
+                            <img src="images/why.jpg" alt="AlzhAI Vision" class="blob-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="logos-reveal-section" style="background: white; padding: 3rem 0; border-bottom: 1px solid #e2e8f0; position: relative; z-index: 2;">
+            <div class="container">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <span style="text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 700; font-size: 0.9rem;">Selected among top 100 teams</span>
+                    </div>
+                    <div class="reveal" style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;">
+                        <a href="https://s2p.it/" target="_blank" rel="noopener noreferrer" style="opacity: 0.7; transition: 0.3s; display: flex; align-items: center; gap: 1rem;">
+                            <img src="images/s2p.webp" alt="Switch2Product Logo" style="height: 50px; width: auto; filter: grayscale(100%); transition: 0.3s;">
+                            <div style="text-align: left;">
+                                <strong style="color: var(--color-primary-dark); display: block;">Switch2Product</strong>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">Innovation Challenge</span>
+                            </div>
+                        </a>
+
+                        <div style="height: 40px; width: 1px; background: #e2e8f0;" class="hide-on-mobile"></div>
+
+                        <a href="https://tef.tech/" target="_blank" rel="noopener noreferrer" style="opacity: 0.7; transition: 0.3s; display: flex; align-items: center; gap: 1rem;">
+                            <img src="images/tech_europe_foundation_logo.jpeg" alt="TEF Logo" style="height: 50px; width: auto; filter: grayscale(100%); transition: 0.3s;">
+                            <div style="text-align: left;">
+                                <strong style="color: var(--color-primary-dark); display: block;">Tech Europe Foundation</strong>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">Startup Competition</span>
+                            </div>
+                        </a>
+                    </div>
+            </div>
         </section>
 
-        <section class="about">
-            <h2>Our Vision</h2>
-            <p>
-                We believe artificial intelligence can transform the way clinicians approach Alzheimer’s diagnosis, enabling earlier interventions and improving patients’ quality of life.
-            </p>
-            <br>
-            <h2>
-                <a href="contacts.html" style="color: #25A18E; text-decoration: none;">
-                    Join our Mission!
-                </a>
-            </h2>
+        <section class="section-padding">
+            <div class="container">
+                <div class="text-center reveal" style="margin-bottom: 4rem;">
+                    <h2>Why standard care is not enough</h2>
+                    <p>The diagnostic window is currently missed by decades.</p>
+                </div>
 
-            <!-- Pulsante per scaricare il pitch deck -->
-            <a href="files/AlzhAI.pdf" class="btn download-btn" download>
-                Download Pitch Deck
-            </a>
+                <div class="bento-grid">
+                    <div class="card reveal">
+                        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg></div>
+                        <h3>Too Late</h3>
+                        <p>Diagnosis typically happens after symptom onset, when neurological damage is often irreversible.</p>
+                    </div>
+                    <div class="card reveal">
+                        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg></div>
+                        <h3>Too Invasive</h3>
+                        <p>PET scans and Lumbar Punctures are painful, complex, expensive, and not scalable for mass screening.</p>
+                    </div>
+                    <div class="card reveal" style="background-color: var(--color-primary-dark); color: white;">
+                        <h3 style="color:white; margin-bottom:1rem;">The AlzhAI Solution</h3>
+                        <p style="color:rgba(255,255,255,0.8); margin-bottom: 2rem;">
+                            We are the precise tool that does not wait for symptoms to appear. <br>
+                            We offer a non-invasive window into the brain through Retinal HSI.
+                        </p>
+                        <a href="product.html" style="color:var(--color-accent); font-weight:700;">Discover How &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="section-padding" style="background: white;">
+            <div class="container">
+                <div class="text-center reveal" style="margin-bottom: 4rem;">
+                    <h2>Empowering the Ecosystem</h2>
+                </div>
+                <div class="bento-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="card reveal" style="border-left: 5px solid var(--color-accent);">
+                        <h3>💊 Pharmaceutical Companies</h3>
+                        <p>We are providing pharmaceutical teams with an efficient tool to monitor treatment 
+                           trends and streamline patient selection—cutting both time and costs in study development.</p>
+                    </div>
+                    <div class="card reveal" style="border-left: 5px solid var(--color-accent);">
+                        <h3>🏥 Clinical Centers</h3>
+                        <p>Enhance workflow efficiency. Screen thousands of patients non-invasively and prioritize high-risk individuals for expensive and deeper examinations.</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>alzhai.project@gmail.com</p>
-        <p>© 2025 AlzhAI. All Rights are reserved.</p>
+        <div class="container">
+            <img src="images/AlzhAI_transparent_light.png" alt="Logo" style="height: 40px; margin: 0 auto 2rem auto; opacity: 0.8;">
+            <p>team@alzh-ai.com</p>
+            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">&copy; 2025 AlzhAI. All Rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
-
