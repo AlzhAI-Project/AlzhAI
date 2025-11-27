@@ -1,526 +1,907 @@
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap');
 
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
 :root {
-    --dark-blue: #004e64;
-    --light-blue: #00A5CF;
-    --green: #25A18E;
-    --light-bg: #EBF2FA;
+    /* Palette Originale Mantenuta */
+    --color-primary-dark: #004e64;   /* Deep Blue */
+    --color-primary-light: #00A5CF;  /* Sky Blue */
+    --color-accent: #25A18E;         /* Teal Green */
+    --color-bg: #EBF2FA;             /* Light Gray/Blue */
+    --color-surface: #FFFFFF;        /* White */
+    
+    /* Text Colors */
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --text-light: #f1f5f9;
+
+    /* Spacing & Layout */
+    --container-width: 1200px;
+    --header-height: 80px;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 8px;
+
+    /* Shadows & Effects */
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(0, 78, 100, 0.1);
+    --shadow-xl: 0 25px 50px -12px rgba(0, 78, 100, 0.25);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Satoshi', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--light-bg);
-    color: var(--dark-blue);
+    font-family: 'Satoshi', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--text-main);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-
-@media (max-width: 768px) {
-    header {
-        background: transparent;
-        z-index: 1100;
-    }
-}
-
-/* HEADER */
-header {
-    background: var(--dark-blue);
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-header h1 {
-    font-size: 1.8rem;
-}
-
-/* 🔹 Hamburger */
-.menu-toggle {
-    position: relative;
-    width: 32px;
-    height: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    background: none;
-    border: none;
-    z-index: 1100;
-}
-
-.menu-toggle span {
+img {
+    max-width: 100%;
     display: block;
-    height: 5px;
-    margin-bottom: 5px;
-    width: 100%;
-    background: white;
-    border-radius: 2px;
-    transition: all 0.35s ease;
-    transform-origin: center;
 }
 
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(9px, -9px);
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        position: absolute;
-        top: 100%;  /* subito sotto l’header */
-        right: 1rem;
-        width: 220px;
-        padding: 1.5rem;
-        gap: 1rem;
-        background: rgba(0, 78, 100, 1); /* trasparenza più evidente */
-        border-radius: 0 0 16px 16px; /* solo angoli inferiori */
-        box-shadow: 0 12px 32px rgba(0,0,0,0.35);
-        transform: translateY(-120%);
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        z-index: 1050;
-    }
-
-
-    nav ul.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-    }
-}
-
-
-
-
-
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 5rem 2rem;
-    color: white;
-
-    /* Sfondo immagine */
-    background: 
-        linear-gradient(rgba(110, 176, 193, 0.636), rgba(0, 78, 100, 1)), /* overlay trasparente */
-        url("images/brain.png") no-repeat center center;
-    background-size: 100%;
-}
-
-.hero h2 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-
-/* Stile base glass effect */
-.btn, 
-.download-btn {
-    display: inline-block;
-    padding: 0.9rem 1.8rem;
-    border-radius: 12px;
-    font-weight: 600;
+a {
     text-decoration: none;
-    position: relative;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
+    color: inherit;
+    transition: 0.3s ease;
 }
 
-/* Learn More → testo bianco */
-.hero .btn {
-    color: #fff;
-}
-
-/* Download Pitch Deck → testo verde acqua */
-.download-btn {
-    color: #25A18E;
-}
-
-/* Hover: più brillante e glow */
-.btn:hover, 
-.download-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25), 0 0 15px rgba(37, 161, 142, 0.5);
-    transform: translateY(-2px);
-}
-
-/* Effetto highlight liquido */
-.btn::before, 
-.download-btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-        circle at top left,
-        rgba(255, 255, 255, 0.6),
-        transparent 60%
-    );
-    opacity: 0.6;
-    pointer-events: none;
-}
-
-
-
-/* ABOUT */
-.about {
-    padding: 3rem 2rem;
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    background: var(--dark-blue);
-    color: white;
-    padding: 1rem;
-    margin-top: 3rem;
-}
-
-/* 📱 RESPONSIVE */
-/* Header flex desktop */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: var(--dark-blue);
-    position: relative;
-    z-index: 1000;
-}
-
-.logo img {
-    height: 60px;
-    width: auto;
-}
-
-/* Desktop menu */
-nav ul {
-    display: flex;
-    gap: 1.5rem;
+ul {
     list-style: none;
 }
 
-nav a {
+/* =========================================
+   2. TYPOGRAPHY & UTILITIES
+   ========================================= */
+h1, h2, h3, h4 {
+    color: var(--color-primary-dark);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -1.5px; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -1px; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+p { font-size: 1.125rem; color: var(--text-muted); }
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.text-center { text-align: center; }
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Spacer Utility */
+.section-padding { padding: 6rem 0; }
+
+/* =========================================
+   3. COMPONENTS
+   ========================================= */
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
     color: white;
-    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(37, 161, 142, 0.3);
 }
 
-/* Hamburger hidden desktop */
-.menu-toggle {
-    display: none;
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 78, 100, 0.4);
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        font-size: 2rem;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        margin-left: auto; /* spinge a destra */
-        z-index: 1100;
-    }
-
-    nav ul {
-        display: none; /* nascosto di default */
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: var(--dark-blue);
-        width: 200px;
-        padding: 1rem;
-        gap: 1rem;
-    }
-
-    nav ul.active {
-        display: flex; /* mostra quando attivo */
-    }
-}
-
-
-
-
-/* LOGO */
-.logo img {
-    height: 60px;     /* regola la dimensione */
-    width: auto;
-    display: block;
-}
-
-/* Product hero */
-.product-hero {
-    background: url("images/mri.jpg") no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    padding: 5rem 2rem;
-    position: relative;
-}
-
-.product-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(37, 161, 142, 0.9); /* overlay scuro per leggibilità */
-}
-
-/* Ensures text is above overlay */
-.product-hero h2,
-.product-hero p {
-    position: relative;
-    z-index: 1;
-}
-
-/* Product Vision */
-.product-vision {
-    padding: 3rem 2rem;
-    background-color: #ebf2fa;
-    text-align: center;
-}
-
-/* Features grid */
-.features {
-    padding: 3rem 2rem;
-    background-color: white;
-}
-
-.feature-grid {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    margin-top: 2rem;
-}
-
-/* Feature con effetto liquid glass */
-.feature {
-    position: relative;
-    background: rgba(235, 242, 250, 0.8);
-    backdrop-filter: blur(14px) saturate(180%);
-    -webkit-backdrop-filter: blur(14px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-
-/* Hover: glow morbido e sollevamento */
-.feature:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.25),
-                0 0 20px rgba(37, 161, 142, 0.4);
-    transform: translateY(-6px);
-}
-
-/* Highlight liquido */
-.feature::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-        circle at top left,
-        rgba(255, 255, 255, 0.5),
-        transparent 70%
-    );
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-
-/* CTA */
-.cta {
-    text-align: center;
-    padding: 3rem 2rem;
-    background-color: #25A18E;
-    color: white;
-}
-
-.cta .btn {
-    background-color: #004E64;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.cta .btn:hover {
-    background-color: #00A5CF;
-}
-
-
-/* TEAM PAGE */
-.team-hero {
-    background-color: #25A18E;
-    color: white;
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.team-grid {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    padding: 3rem 2rem;
-    background-color: #EBF2FA;
-    text-align: center;
-    max-width: 800px;   /* larghezza massima */
-    margin: 0 auto;     /* centra la griglia */
-}
-
-.team-member {
+.btn-secondary {
     background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    color: var(--color-primary-dark);
+    border: 1px solid #e2e8f0;
 }
 
-.team-member img {
-    border-radius: 50%;
-    margin-bottom: 1rem;
+.btn-secondary:hover {
+    border-color: var(--color-primary-dark);
+    background: #f8fafc;
 }
 
-/* CONTACT PAGE */
-
-.contact-hero {
-    background-color: #25A18E;
-    color: white;
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.contact-form {
-    padding: 3rem 2rem;
-    background-color: #EBF2FA;
-    max-width: 600px;
-    margin: 2rem auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.contact-form .form-group {
+/* Cards (Bento Style) */
+.card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.contact-form label {
-    font-weight: bold;
-    color: #004E64;
-    margin-bottom: 0.5rem;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
 }
 
-.contact-form input,
-.contact-form textarea {
+/* Icon Box */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(37, 161, 142, 0.1); /* Accent opacity */
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.icon-box svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+/* =========================================
+   4. HEADER & NAV
+   ========================================= */
+header {
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 0.9rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    transition: all 0.3s ease;
+}
+
+.logo img { height: 50px; }
+
+.nav-menu ul { display: flex; gap: 2.5rem; }
+
+.nav-menu a {
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    position: relative;
+    font-size: 1rem;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active-link::after { width: 100%; }
+
+.menu-toggle { display: none; }
+
+/* =========================================
+   5. HOME PAGE SECTIONS & SCROLL EFFECTS (DESKTOP FIX)
+   ========================================= */
+
+/* 1. Effetto Scorrimento (Sticky Reveal) - DESKTOP */
+.hero-sticky-container {
+    position: sticky;
+    top: 0;
+    z-index: 0; /* Z-index base, deve stare sotto */
+    height: 100vh;
+    display: flex;
+    align-items: center; 
+    overflow: hidden;
+}
+
+.hero-modern {
+    width: 100%;
+    padding-top: var(--header-height) !important;
+    padding-bottom: 4rem !important;
+    background: radial-gradient(circle at 80% 20%, rgba(37, 161, 142, 0.15) 0%, transparent 40%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 78, 100, 0.05);
+    color: var(--color-primary-dark);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- FIX CRITICO DESKTOP --- */
+/* Assicura che TUTTE le sezioni che seguono la hero abbiano uno sfondo solido
+   e un z-index più alto per coprire la hero fissa. */
+main > section {
+    position: relative;
+    z-index: 10; /* Superiore a z-index:0 della hero */
+    background-color: var(--color-surface); /* Sfondo bianco solido di default */
+}
+
+/* Specifica per la sezione "Problemi" che deve avere sfondo grigio chiaro */
+main > section:not([style*="background: white"]) {
+     background-color: var(--color-bg);
+}
+
+/* Aggiungiamo un'ombra solo alla prima sezione che copre la hero per profondità */
+.logos-reveal-section {
+    box-shadow: 0 -20px 40px rgba(0,0,0,0.05);
+}
+
+/* 2. NUOVA SOLUZIONE IMMAGINE (Organica, non tagliata) */
+.blob-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; /* Spazio per l'elemento posteriore */
+}
+
+/* Elemento decorativo posteriore (Accent Blob che pulsa) */
+.blob-image-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; 
+    height: 100%;
+    background: rgba(37, 161, 142, 0.15); /* Colore accent tenue */
+    border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%; /* Forma organica */
+    z-index: -1; /* Dietro l'immagine */
+    animation: blob-pulse 10s ease-in-out infinite alternate;
+}
+
+.blob-image {
+    width: 100%;
+    height: auto;
+    /* Forza un rapporto 4:3 per non schiacciare l'immagine */
+    aspect-ratio: 4/3; 
+    object-fit: cover;
+
+    /* Invece del clip-path, usiamo bordi arrotondati organici morbidi */
+    border-radius: 24px; /* Arrotondamento base */
+    border-top-left-radius: 55%;
+    border-bottom-right-radius: 55%;
+
+    /* Ombra morbida */
+    box-shadow: 0 20px 40px rgba(0, 78, 100, 0.15);
+    transition: transform 0.5s ease, border-radius 0.5s ease;
+}
+
+/* Effetto Hover */
+.blob-image-container:hover .blob-image {
+    /* Cambio di forma leggero */
+    border-top-left-radius: 45%;
+    border-bottom-right-radius: 65%;
+    transform: scale(1.01) rotate(1deg);
+}
+
+/* Animazione lenta dello sfondo */
+@keyframes blob-pulse {
+    0% { border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%; transform: translate(-50%, -50%) scale(1); }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(-50%, -50%) scale(1.05) rotate(5deg); }
+}
+
+/* LOGOS BAR HOVER EFFECT */
+section[style*="background: white; padding: 3rem 0;"] a:hover {
+    opacity: 1 !important;
+}
+
+section[style*="background: white; padding: 3rem 0;"] a:hover img {
+    filter: grayscale(0%) !important;
+}
+
+/* Features Grid (Bento) */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+
+/* =========================================
+   6. PRODUCT PAGE SPECIFIC
+   ========================================= */
+
+
+.hero-content-z {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-content-z h1 { color: white; margin-bottom: 1.5rem; }
+.hero-content-z p { color: rgba(255,255,255,0.9); font-size: 1.25rem; }
+
+/* HSI Section dark mode - POTENZIATO */
+.dark-section {
+    background-color: var(--color-primary-dark) !important; /* Forza il colore scuro */
+    color: white !important; /* Forza il testo chiaro per tutta la sezione */
+    padding-top: 6rem; /* Assicurati che abbia il padding standard delle sezioni */
+    padding-bottom: 6rem;
+}
+.dark-section h2 { 
+    color: white !important; /* Forza il colore bianco per l'h2 */
+}
+.dark-section p { 
+    color: rgba(255,255,255,0.8) !important; /* Bianco leggermente più visibile */
+}
+
+/* Stile per il container del grafico/immagine */
+.dark-section .reveal > div[style*="background: rgba(255,255,255,0.1)"] { /* Targetta il box del placeholder */
+    background: rgba(255,255,255,0.15) !important; /* Rendi lo sfondo del box leggermente più visibile */
+    border: 1px solid rgba(255,255,255,0.3) !important; /* Bordo più contrastato */
+    color: rgba(255,255,255,0.7) !important; /* Testo del placeholder più visibile */
+}
+
+/* Stile per la card "High-Throughput" all'interno della dark-section */
+.dark-section .card {
+    background: rgba(255,255,255,0.1) !important; /* Sfondo della card */
+    border: 1px solid rgba(255,255,255,0.2) !important; /* Bordo della card */
+    box-shadow: none !important; /* Rimuovi l'ombra scura, non serve su sfondo scuro */
+    color: white; /* Assicurati che il testo della card sia bianco */
+}
+
+.dark-section .card:hover {
+    background: rgba(255,255,255,0.2) !important; /* Hover più evidente */
+    transform: translateY(-3px) !important; /* Leggero sollevamento */
+}
+
+/* Icon box all'interno della dark-section card */
+.dark-section .card .icon-box {
+    background: rgba(37, 161, 142, 0.2) !important; /* Accent opacity più alta */
+    color: var(--color-accent) !important; /* Colore dell'icona accentuato */
+}
+
+/* Testo all'interno della card "High-Throughput" */
+.dark-section .card strong {
+    color: white !important; /* Testo forte bianco */
+}
+.dark-section .card p {
+    color: rgba(255,255,255,0.8) !important; /* Testo del paragrafo leggermente più chiaro */
+}
+
+/* Assicurati che la hero-grid funzioni bene nel contesto scuro */
+.dark-section .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Mantiene la proporzione */
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Media query per mobile */
+@media (max-width: 900px) {
+    .dark-section .hero-grid {
+        grid-template-columns: 1fr !important; /* Stack su mobile */
+        text-align: center !important;
+    }
+    .dark-section .reveal > div[style*="background: rgba(255,255,255,0.1)"] {
+        height: 250px !important; /* Riduci l'altezza del placeholder su mobile */
+    }
+}
+/* =========================================
+   7. TEAM & CONTACTS
+   ========================================= */
+.team-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.member-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: 0.3s;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.member-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-xl); }
+
+.member-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 2.5rem auto 1.5rem auto;
+    display: block;
+    background: #e2e8f0;
+    border: 4px solid white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.member-info { padding: 1.5rem; }
+.member-role { color: var(--color-accent); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
+
+/* Contact Split */
+.contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    background: white;
+    padding: 4rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.5rem;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: #00A5CF;
-    outline: none;
-}
-
-.contact-form button {
-    align-self: flex-start;
-    background-color: #25A18E;
-    color: white;
-    border: none;
-    padding: 0.9rem 1.8rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-    background-color: #004E64;
-}
-
-/* RESPONSIVE: su mobile tutto rimane full-width */
-@media (max-width: 600px) {
-    .contact-form {
-        padding: 2rem 1rem;
-    }
-
-    .contact-form button {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-
-
-.team-member {
-    text-align: center;
-    max-width: 200px;   /* larghezza massima del box */
-    margin: 0 auto;     /* centra i box */
-}
-
-.team-member img {
-    width: 100%;        /* riempie la larghezza del div */
-    height: auto;       /* mantiene proporzioni */
-    max-width: 150px;   /* non cresce oltre */
-    border-radius: 50%; /* rende l’immagine circolare (opzionale) */
-}
-
-.download-btn {
-    margin-top: 1.5rem;
-    display: inline-block;
-    background: #25A18E;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    font-weight: bold;
-    text-decoration: none;
     transition: 0.3s;
 }
 
-.download-btn:hover {
-    background: var(--dark-blue);
-    color: white;
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(37, 161, 142, 0.1);
 }
 
+/* FIX BOTTONE CONTATTI */
+.contact-split form button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--color-accent);
+    color: white;
+    box-shadow: 0 10px 20px rgba(37, 161, 142, 0.3);
+    border: none;
+    width: 100%;
+    margin-top: 1rem;
+    font-family: 'Satoshi', sans-serif;
+}
+
+.contact-split form button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 78, 100, 0.4);
+}
+
+/* =========================================
+   8. FOOTER & RESPONSIVE
+   ========================================= */
+footer {
+    background: var(--color-primary-dark);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* =========================================
+   RESPONSIVE (MOBILE) - FIX COMPLETO
+   ========================================= */
+@media (max-width: 900px) {
+    h1 { font-size: 2.5rem; }
+    /* Aggiunto gap per separare meglio su mobile */
+    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+    
+    /* --- FIX CRITICO SCORRIMENTO MOBILE --- */
+    /* 1. Disabilita completamente l'effetto sticky e resetta i livelli */
+    .hero-sticky-container {
+        position: relative !important; /* Non più sticky */
+        height: auto !important;       /* Altezza naturale in base al contenuto */
+        top: auto !important;          /* Resetta top: 0 */
+        z-index: auto !important;      /* Resetta z-index: 1 */
+        display: block !important;     /* Rimuove allineamenti flex verticali */
+    }
+    
+    /* 2. Aggiusta il padding della hero per compensare l'header fisso */
+    .hero-modern {
+        padding-top: calc(var(--header-height) + 3rem) !important;
+        padding-bottom: 3rem !important;
+    }
+
+    /* 3. Resetta la sezione successiva per farla scorrere normalmente SOTTO */
+    .logos-reveal-section {
+        position: relative !important;
+        z-index: auto !important;    /* Resetta z-index: 2 */
+        box-shadow: none !important; /* Rimuove l'ombra */
+    }
+    
+    /* 4. Su mobile l'immagine può essere più semplice */
+    .blob-image {
+        aspect-ratio: auto; /* Lascia che l'altezza si adatti */
+        max-height: 400px;  /* Limita l'altezza su schermi piccoli */
+    }
+    /* --------------------------------------- */
+    
+    .bento-grid { grid-template-columns: 1fr !important; }
+    .span-2, .span-3 { grid-column: span 1 !important; }
+    
+    .contact-split { grid-template-columns: 1fr; padding: 2rem; }
+    
+    /* Nascondi il separatore su mobile */
+    .hide-on-mobile {
+        display: none !important;
+    }
+    
+    /* Mobile Menu */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        
+        /* POSIZIONAMENTO CORRETTO */
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1100;
+    }
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--color-primary-dark);
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+    
+    .nav-menu ul {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s ease;
+    }
+    
+    .nav-menu ul.active { right: 0; }
+}
+
+/* =========================================
+   9. ANIMATIONS
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-hero-cinematic {
+    /* Assicurati che ci sia uno spazio sufficiente per il contenuto */
+    padding-top: calc(var(--header-height) + 4rem); /* Regola in base all'altezza dell'header */
+    padding-bottom: 6rem; /* Padding per la sezione */
+    
+    /* SFONDO SCURO */
+    background-color: var(--color-primary-dark); /* Usa il tuo blu scuro primario */
+    color: white; /* Assicurati che tutto il testo all'interno sia bianco */
+
+    /* Stile cinematico opzionale: aggiungi un gradiente per un look più moderno */
+    background-image: linear-gradient(135deg, var(--color-primary-dark) 0%, #003a4d 100%);
+    /* O un'immagine con un overlay scuro */
+    /* background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('path/to/your/hero-image.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    
+    display: flex; /* Centra il contenuto verticalmente */
+    align-items: center; /* Centra il contenuto verticalmente */
+    justify-content: center; /* Centra il contenuto orizzontalmente */
+    text-align: center; /* Centra il testo */
+    min-height: 500px; /* Altezza minima per un look d'impatto */
+    position: relative; /* Per posizionare elementi all'interno se necessario */
+    overflow: hidden; /* Per eventuali effetti o elementi che escono dai bordi */
+}
+
+/* =========================================
+   6. PRODUCT PAGE SPECIFIC (aggiornato per Hero Grid)
+   ========================================= */
+
+.product-hero-cinematic {
+    padding-top: calc(var(--header-height) + 4rem); 
+    padding-bottom: 6rem;
+    min-height: 600px; /* Aumentiamo leggermente l'altezza minima per la griglia */
+    position: relative;
+    overflow: hidden;
+
+    background-color: var(--color-primary-dark); 
+    background-image: linear-gradient(135deg, var(--color-primary-dark) 0%, #003a4d 100%); 
+    
+    color: white; 
+    /* Rimuoviamo display: flex; align-items: center; justify-content: center; text-align: center; 
+       perché la griglia gestirà il layout */
+}
+
+/* Stile per il container della griglia della hero prodotto */
+.hero-grid-product {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Due colonne di pari larghezza */
+    gap: 4rem; /* Spazio tra le colonne */
+    align-items: center; /* Centra verticalmente il contenuto delle colonne */
+    height: 100%; /* La griglia occupa l'altezza disponibile nel product-hero-cinematic */
+}
+
+.hero-content-z {
+    position: relative;
+    z-index: 2; /* Assicura che il testo sia sopra lo sfondo */
+    padding: 0; /* Rimuovi il padding orizzontale se già gestito dal container */
+    text-align: left; /* Il testo sarà allineato a sinistra nella sua colonna */
+}
+
+.hero-content-z h1 { 
+    color: white; 
+    margin-bottom: 1.5rem; 
+    font-size: clamp(2.5rem, 4.5vw, 3.8rem); /* Riduci leggermente la dimensione H1 se troppo grande */
+}
+.hero-content-z p { 
+    color: rgba(255,255,255,0.9); 
+    font-size: 1.25rem; 
+    max-width: none; /* Rimuovi il max-width qui, la griglia gestisce la larghezza */
+    margin-left: 0; /* Rimuovi i margini auto */
+    margin-right: 0;
+}
+
+.hero-tag {
+    /* Manteniamo lo stile inline per ora, o puoi definire qui */
+    display: inline-block; /* Assicurati che sia inline-block per non prendere tutta la larghezza */
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.2); 
+    color: white;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   6. PRODUCT PAGE SPECIFIC (Finalizzazione Hero Image)
+   ========================================= */
+
+/* Assicurati che il container della griglia sia ben definito */
+.hero-grid-product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    height: 100%; /* Importante per dare altezza all'immagine */
+    position: relative; /* Se hai bisogno di posizionamento assoluto per altri elementi */
+}
+
+.product-hero-cinematic {
+    padding-top: calc(var(--header-height) + 4rem); 
+    padding-bottom: 6rem;
+    min-height: 500px; /* Altezza minima, può essere più grande */
+    position: relative;
+    overflow: hidden;
+
+    background-color: var(--color-primary-dark); 
+    background-image: linear-gradient(135deg, var(--color-primary-dark) 0%, #003a4d 100%); 
+    
+    color: white; 
+    
+    /* Nuovo: Centra il contenuto orizzontalmente e verticalmente */
+    display: flex;
+    flex-direction: column; /* Impila il contenuto in una colonna */
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centra il testo */
+}
+
+/* Adatta hero-content-z per il layout a colonna singola */
+.hero-content-z {
+    position: relative;
+    z-index: 2;
+    max-width: 800px; /* Limita la larghezza del testo */
+    padding: 0 2rem;
+    text-align: center; /* Assicurati che il testo sia centrato */
+}
+
+/* Adatta anche l'h1 e p per il nuovo allineamento */
+.hero-content-z h1 { 
+    color: white; 
+    margin-bottom: 1.5rem; 
+    font-size: clamp(2.8rem, 5vw, 4rem); /* Regola la dimensione del titolo */
+    line-height: 1.1;
+}
+.hero-content-z p { 
+    color: rgba(255,255,255,0.9); 
+    font-size: 1.25rem; 
+    max-width: 700px; /* Per una migliore leggibilità */
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-tag {
+    /* Manteniamo lo stile inline per ora, o puoi definire qui */
+    display: inline-block; /* Assicurati che sia inline-block */
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.2); 
+    color: white;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-hero-image {
+    max-width: 100%; /* L'immagine non supera la larghezza del contenitore */
+    height: auto; /* L'altezza si adatta automaticamente per mantenere le proporzioni */
+    max-height: 100%; /* Fondamentale: l'altezza massima è quella del contenitore */
+    object-fit: contain; /* L'immagine si ridimensiona per stare interamente nel contenitore */
+    
+    /* Rimuovi completamente qualsiasi bordo o box-shadow che potrebbe provenire da altre regole */
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    
+    /* Regola la posizione se vuoi che sia leggermente fuori dal bordo destro */
+    /* transform: translateX(10%); */ /* Sposta l'immagine del 10% verso destra */
+    /* margin-right: -5%; */ /* Un altro modo per farla sporgere leggermente a destra */
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 900px) {
+    .hero-grid-product {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .product-hero-image-container {
+        justify-content: center; /* Centra l'immagine su mobile */
+        height: auto;
+        padding-left: 0;
+        min-height: 200px; /* Assicura un'altezza minima per l'immagine */
+    }
+    .product-hero-image {
+        width: 90%; /* Occupa quasi tutta la larghezza su mobile */
+        max-height: 300px; /* Limita l'altezza su mobile se diventa troppo grande */
+    }
+}
+
+/* Stile per il placeholder dell'immagine (o per l'immagine stessa) */
+.image-placeholder-box {
+    background: rgba(255,255,255,0.1);
+    height: 400px; /* Altezza fissa per il placeholder */
+    width: 100%;
+    max-width: 500px; /* Limita la larghezza */
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.6);
+    font-family: monospace;
+    font-size: 1.2rem;
+    text-align: center;
+    /* Puoi aggiungere una leggera ombra o un effetto glassmorphism qui se vuoi */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Se userai un <img> tag direttamente: */
+.product-hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombra per l'immagine */
+    object-fit: cover;
+}
+
+
+/* Media query per dispositivi mobili */
+@media (max-width: 900px) {
+    .hero-grid-product {
+        grid-template-columns: 1fr; /* Una sola colonna su mobile */
+        text-align: center; /* Centra il testo su mobile */
+        gap: 2rem;
+    }
+    .hero-content-z {
+        text-align: center; /* Centra il testo nella colonna su mobile */
+    }
+    .hero-content-z h1 {
+        font-size: clamp(2rem, 8vw, 3rem); /* Ridimensiona l'H1 per mobile */
+    }
+    .image-placeholder-box {
+        height: 300px; /* Ridurre l'altezza del placeholder su mobile */
+    }
+    .hero-tag {
+        margin-left: auto;
+        margin-right: auto; /* Centra il tag su mobile */
+    }
+}
+
+
+/* Stile per l'immagine dell'occhio nella sezione "The Retinal Window" */
+.hsi-retinal-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px; /* Limita l'altezza massima per il layout */
+    display: block; /* Per rimuovere eventuali spazi extra sotto l'immagine */
+    margin: 0 auto; /* Centra l'immagine nella sua colonna */
+    object-fit: contain;
+    /* Puoi aggiungere una leggera ombra o filtro se vuoi che risalti un po' di più sul blu scuro */
+    /* filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); */
+}
+
+/* Media query per mobile per l'immagine della dark-section */
+@media (max-width: 900px) {
+    .hsi-retinal-image {
+        max-height: 300px; /* Ridotto su mobile */
+    }
+}
