@@ -3,65 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlzhAI - The Team</title>
+    <title>AlzhAI - Team</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/icona.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/icona.png">
-    <link rel="shortcut icon" href="images/icona.png">
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">
-            <img src="images/AlzhAI_transparent_light.png" alt="AlzhAI Logo">
-        </a>
-        <!-- Bottone hamburger -->
-        <button class="menu-toggle" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <a href="index.html" class="logo"><img src="images/AlzhAI_transparent_dark.png" alt="Logo"></a>
+        <button class="menu-toggle"><span></span><span></span><span></span></button>
         <nav class="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="product.html">Product</a></li>
-                <li><a href="team.html">The Team</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="team.html" class="active-link">Team</a></li>
+                <li><a href="contacts.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="team-hero">
-            <h2>Meet Our Team</h2>
-            <p>AlzhAI is powered by three students—restless innovators on a bold mission to reinvent Alzheimer’s diagnosis with AI.</p>
-        </section>
+        <section class="section-padding" style="margin-top: 4rem;">
+            <div class="container text-center reveal">
+                <h1>Meet the Team</h1>
+                <p style="max-width: 600px; margin: 0 auto 4rem auto;">
+                    Restless innovators on a mission to reinvent Alzheimer’s diagnosis through cutting-edge optics and data.
+                </p>
+                
+                <div class="team-wrapper">
+                    <div class="member-card reveal">
+                        <img src="images/team images/daniele.png" alt="Daniele" class="member-photo">
+                        <div class="member-info">
+                            <h3>Daniele De Carli</h3>
+                            <span class="member-role">Co-Founder</span>
+                            <p style="font-size: 0.9rem;">Engineering Physics<br>Politecnico di Milano</p>
+                        </div>
+                    </div>
 
-        <section class="team-grid">
-            <div class="team-member">
-                <img src="images/team images/daniele.png" alt="Team member">
-                <h3>Daniele De Carli</h3>
-                <p>Co-Founder, </br>Engineering Physics Student from Politecnico di Milano</p>
-            </div>
-            <div class="team-member">
-                <img src="images/team images/alberto.png" alt="Team member">
-                <h3>Alberto Sudati</h3>
-                <p>Co-Founder</br>Engineering Physics Student from Politecnico di Milano</p>
-            </div>
-            <div class="team-member">
-                <img src="images/team images/savvina.png" alt="Team member">
-                <h3>Savvina Salvaridou</h3>
-                <p>Co-Founder,</br>Economic and Social Sciences Student from Bocconi</p>
+                    <div class="member-card reveal">
+                        <img src="images/team images/alberto.png" alt="Alberto" class="member-photo">
+                        <div class="member-info">
+                            <h3>Alberto Sudati</h3>
+                            <span class="member-role">Co-Founder</span>
+                            <p style="font-size: 0.9rem;">Engineering Physics<br>Politecnico di Milano</p>
+                        </div>
+                    </div>
+
+                    <div class="member-card reveal">
+                        <img src="images/team images/savvina.png" alt="Savvina" class="member-photo">
+                        <div class="member-info">
+                            <h3>Savvina Salvaridou</h3>
+                            <span class="member-role">Co-Founder</span>
+                            <p style="font-size: 0.9rem;">Economic & Social Sciences<br>Bocconi University</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-
+    
     <footer>
-        <p>alzhai.project@gmail.com</p>
-        <p>© 2025 AlzhAI. All Rights reserved.</p>
+        <div class="container">
+            <img src="images/AlzhAI_transparent_light.png" alt="Logo" style="height: 40px; margin: 0 auto 2rem auto; opacity: 0.8;">
+            <p>team@alzh-ai.com</p>
+            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">&copy; 2025 AlzhAI. All Rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
-
