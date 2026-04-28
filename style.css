@@ -542,7 +542,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 2.8rem; }
+    h1 { 
+        /* Ho abbassato il limite minimo da 2.2rem a 1.8rem per i telefoni più stretti */
+        font-size: clamp(1.8rem, 5vw, 3.8rem); 
+        letter-spacing: -1.5px; 
+        text-wrap: balance; 
+    }
     .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
     .hero-modern { padding-top: calc(var(--header-height) + 3rem); }
     .blob-image-container { margin: 0 auto; }
