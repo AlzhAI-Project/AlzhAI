@@ -1,34 +1,33 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
 
 /* =========================================
    1. VARIABLES & RESET
    ========================================= */
 :root {
-    /* Palette Originale Mantenuta */
-    --color-primary-dark: #004e64;   /* Deep Blue */
-    --color-primary-light: #00A5CF;  /* Sky Blue */
-    --color-accent: #25A18E;         /* Teal Green */
-    --color-bg: #EBF2FA;             /* Light Gray/Blue */
-    --color-surface: #FFFFFF;        /* White */
+    /* Palette Mantenuta */
+    --color-primary-dark: #004e64;   
+    --color-primary-light: #00A5CF;  
+    --color-accent: #25A18E;         
+    --color-bg: #EBF2FA;             
+    --color-surface: #FFFFFF;        
     
     /* Text Colors */
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --text-light: #f1f5f9;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-light: #f8fafc;
 
     /* Spacing & Layout */
     --container-width: 1200px;
     --header-height: 80px;
+    --radius-xl: 32px;
     --radius-lg: 24px;
     --radius-md: 16px;
     --radius-sm: 8px;
 
-    /* Shadows & Effects */
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 10px 15px -3px rgba(0, 78, 100, 0.1);
-    --shadow-xl: 0 25px 50px -12px rgba(0, 78, 100, 0.25);
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Modern Shadows */
+    --shadow-sm: 0 4px 6px -1px rgba(0, 78, 100, 0.05), 0 2px 4px -1px rgba(0, 78, 100, 0.03);
+    --shadow-md: 0 10px 25px -3px rgba(0, 78, 100, 0.08), 0 4px 6px -2px rgba(0, 78, 100, 0.04);
+    --shadow-xl: 0 25px 50px -12px rgba(0, 78, 100, 0.15);
 }
 
 * {
@@ -38,138 +37,107 @@
 }
 
 html {
-    scroll-behavior: smooth;
+
 }
 
 body {
     font-family: 'Satoshi', sans-serif;
-    background-color: var(--color-bg);
+    background-color: var(--color-surface);
     color: var(--text-main);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
 
-img {
-    max-width: 100%;
-    display: block;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s ease;
-}
-
-ul {
-    list-style: none;
-}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+ul { list-style: none; }
 
 /* =========================================
    2. TYPOGRAPHY & UTILITIES
    ========================================= */
 h1, h2, h3, h4 {
     color: var(--color-primary-dark);
-    line-height: 1.2;
+    line-height: 1.1;
     font-weight: 700;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -1.5px; }
-h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -1px; margin-bottom: 1rem; }
-h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-p { font-size: 1.125rem; color: var(--text-muted); }
-
-.container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 2rem;
+h1 { 
+    font-size: clamp(2.2rem, 4.2vw, 3.8rem); 
+    letter-spacing: -1.5px; 
+    text-wrap: balance; 
 }
 
+h2 { 
+    font-size: clamp(2rem, 3.8vw, 3.2rem); 
+    letter-spacing: -1px; 
+    margin-bottom: 1rem; 
+    text-wrap: balance; 
+}
+
+h3 { font-size: 1.6rem; margin-bottom: 0.7rem; letter-spacing: -0.5px;}
+h4 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-muted); }
+p { font-size: 1.125rem; color: var(--text-muted); }
+
+.container { max-width: var(--container-width); margin: 0 auto; padding: 0 2rem; }
 .text-center { text-align: center; }
+
 .text-gradient {
     background: linear-gradient(135deg, var(--color-primary-dark), var(--color-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Spacer Utility */
-.section-padding { padding: 6rem 0; }
+.section-padding { padding: 8rem 0; }
+.section-header { margin-bottom: 3rem; max-width: 1000px; margin-inline: auto; }
 
 /* =========================================
    3. COMPONENTS
    ========================================= */
-
-/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 1.1rem 2.5rem;
     border-radius: 100px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.05rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: none;
+    font-family: inherit;
 }
 
 .btn-primary {
     background-color: var(--color-accent);
     color: white;
-    box-shadow: 0 10px 20px rgba(37, 161, 142, 0.3);
+    box-shadow: 0 8px 20px rgba(37, 161, 142, 0.25);
 }
 
 .btn-primary:hover {
     background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(0, 78, 100, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 78, 100, 0.3);
 }
 
-.btn-secondary {
-    background: white;
-    color: var(--color-primary-dark);
-    border: 1px solid #e2e8f0;
-}
+.btn-full { width: 100%; margin-top: 1rem; }
 
-.btn-secondary:hover {
-    border-color: var(--color-primary-dark);
-    background: #f8fafc;
-}
-
-/* Cards (Bento Style) */
 .card {
     background: var(--color-surface);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     padding: 2.5rem;
-    border: 1px solid rgba(0,0,0,0.03);
+    border: 1px solid rgba(0, 78, 100, 0.06);
     box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-xl);
-}
-
-/* Icon Box */
-.icon-box {
-    width: 60px;
-    height: 60px;
-    background: rgba(37, 161, 142, 0.1); /* Accent opacity */
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-accent);
-    margin-bottom: 1.5rem;
-}
-
-.icon-box svg {
-    width: 28px;
-    height: 28px;
-    fill: currentColor;
 }
 
 /* =========================================
@@ -182,9 +150,10 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -192,716 +161,425 @@ header {
     transition: all 0.3s ease;
 }
 
-.logo img { height: 50px; }
-
+.logo img { height: 40px; }
 .nav-menu ul { display: flex; gap: 2.5rem; }
-
-.nav-menu a {
-    font-weight: 500;
-    color: var(--color-primary-dark);
-    position: relative;
-    font-size: 1rem;
-}
-
-.nav-menu a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--color-accent);
-    transition: width 0.3s ease;
-}
-
-.nav-menu a:hover::after,
-.nav-menu a.active-link::after { width: 100%; }
-
+.nav-menu a { font-weight: 500; color: var(--color-primary-dark); font-size: 1rem; transition: color 0.3s; }
+.nav-menu a:hover, .nav-menu a.active-link { color: var(--color-accent); }
 .menu-toggle { display: none; }
 
 /* =========================================
-   5. HOME PAGE SECTIONS & SCROLL EFFECTS (DESKTOP FIX)
+   5. HERO & LOGOS
    ========================================= */
+main { position: relative; }
 
-/* 1. Effetto Scorrimento (Sticky Reveal) - DESKTOP */
 .hero-sticky-container {
-    position: sticky;
-    top: 0;
-    z-index: 0; /* Z-index base, deve stare sotto */
-    height: 100vh;
-    display: flex;
-    align-items: center; 
+    position: relative;
+    z-index: 1;
     overflow: hidden;
 }
 
 .hero-modern {
-    width: 100%;
-    padding-top: var(--header-height) !important;
-    padding-bottom: 4rem !important;
-    background: radial-gradient(circle at 80% 20%, rgba(37, 161, 142, 0.15) 0%, transparent 40%);
+    padding-top: calc(var(--header-height) + 5rem);
+    padding-bottom: 5rem;
+    background: radial-gradient(circle at 85% 15%, rgba(37, 161, 142, 0.08) 0%, transparent 50%);
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.3fr 0.7fr; 
     gap: 4rem;
     align-items: center;
 }
 
 .hero-tag {
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background: rgba(0, 78, 100, 0.05);
-    color: var(--color-primary-dark);
+    padding: 0.5rem 1.2rem;
+    background: var(--color-bg);
+    color: var(--text-muted);
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
-/* --- FIX CRITICO DESKTOP --- */
-/* Assicura che TUTTE le sezioni che seguono la hero abbiano uno sfondo solido
-   e un z-index più alto per coprire la hero fissa. */
-main > section {
-    position: relative;
-    z-index: 10; /* Superiore a z-index:0 della hero */
-    background-color: var(--color-surface); /* Sfondo bianco solido di default */
+.tag-accent {
+    background: rgba(37, 161, 142, 0.1);
+    color: var(--color-accent);
 }
 
-/* Specifica per la sezione "Problemi" che deve avere sfondo grigio chiaro */
-main > section:not([style*="background: white"]) {
-     background-color: var(--color-bg);
-}
+.hero-description { margin: 1.5rem 0 3rem 0; font-size: 1.25rem; }
 
-/* Aggiungiamo un'ombra solo alla prima sezione che copre la hero per profondità */
-.logos-reveal-section {
-    box-shadow: 0 -20px 40px rgba(0,0,0,0.05);
-}
-
-/* 2. NUOVA SOLUZIONE IMMAGINE (Organica, non tagliata) */
 .blob-image-container {
     position: relative;
     width: 100%;
     max-width: 550px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem; /* Spazio per l'elemento posteriore */
+    padding: 1rem;
 }
 
-/* Elemento decorativo posteriore (Accent Blob che pulsa) */
 .blob-image-container::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%; 
-    height: 100%;
-    background: rgba(37, 161, 142, 0.15); /* Colore accent tenue */
-    border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%; /* Forma organica */
-    z-index: -1; /* Dietro l'immagine */
-    animation: blob-pulse 10s ease-in-out infinite alternate;
+    width: 100%; height: 100%;
+    background: rgba(37, 161, 142, 0.15);
+    border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%;
+    z-index: -1;
+    animation: blob-pulse 15s ease-in-out infinite alternate;
 }
 
 .blob-image {
     width: 100%;
-    height: auto;
-    /* Forza un rapporto 4:3 per non schiacciare l'immagine */
-    aspect-ratio: 4/3; 
+    aspect-ratio: 4/3;
     object-fit: cover;
-
-    /* Invece del clip-path, usiamo bordi arrotondati organici morbidi */
-    border-radius: 24px; /* Arrotondamento base */
+    border-radius: 32px;
     border-top-left-radius: 55%;
     border-bottom-right-radius: 55%;
-
-    /* Ombra morbida */
-    box-shadow: 0 20px 40px rgba(0, 78, 100, 0.15);
-    transition: transform 0.5s ease, border-radius 0.5s ease;
+    box-shadow: 0 20px 40px rgba(0, 78, 100, 0.1);
+    transition: transform 0.6s ease, border-radius 0.6s ease;
 }
 
-/* Effetto Hover */
 .blob-image-container:hover .blob-image {
-    /* Cambio di forma leggero */
-    border-top-left-radius: 45%;
-    border-bottom-right-radius: 65%;
-    transform: scale(1.01) rotate(1deg);
+    border-top-left-radius: 40%;
+    border-bottom-right-radius: 60%;
+    transform: scale(1.02);
 }
 
-/* Animazione lenta dello sfondo */
 @keyframes blob-pulse {
     0% { border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%; transform: translate(-50%, -50%) scale(1); }
-    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(-50%, -50%) scale(1.05) rotate(5deg); }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(-50%, -50%) scale(1.05) rotate(3deg); }
 }
 
-/* LOGOS BAR HOVER EFFECT */
-section[style*="background: white; padding: 3rem 0;"] a:hover {
-    opacity: 1 !important;
+.logos-reveal-section {
+    background: white;
+    padding: 4rem 0;
+    position: relative;
+    z-index: 2; 
+}
+.logos-title { margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 700; font-size: 0.85rem; }
+.logos-flex { display: flex; justify-content: center; align-items: center; gap: 5rem; flex-wrap: wrap; }
+.logo-item { display: flex; align-items: center; gap: 1.5rem; transition: 0.3s; opacity: 0.7; cursor: default; }
+.logo-item:hover { opacity: 1; }
+.logo-item img { height: 50px; filter: grayscale(100%); transition: 0.4s; }
+.logo-item:hover img { filter: grayscale(0%); }
+.logo-text strong { color: var(--color-primary-dark); display: block; font-size: 1.1rem; }
+.logo-text span { font-size: 0.85rem; color: var(--text-muted); }
+
+/* =========================================
+   STACKING SECTIONS (DESKTOP)
+   (Ripristinato effetto scorrimento con min-height)
+   ========================================= */
+
+/* Challenge Section (Sticky Layer 1) */
+/* Challenge Section (Sticky Layer 1) */
+.challenge-section {
+    background: var(--color-bg);
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    min-height: 100vh; /* RIMESSO: forza a coprire tutto lo schermo */
+    padding-top: calc(var(--header-height) - 2rem); /* Dà respiro in alto */
+    padding-bottom: 5rem; 
+    box-shadow: 0 -20px 40px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    /* RIMOSSO justify-content: center; per evitare che i contenuti scappino in alto */
 }
 
-section[style*="background: white; padding: 3rem 0;"] a:hover img {
-    filter: grayscale(0%) !important;
-}
-
-/* Features Grid (Bento) */
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
-.span-2 { grid-column: span 2; }
-.span-3 { grid-column: span 3; }
+ul.feature-list, ul.feature-list-2 { padding-left: 1.5rem; margin-top: 1rem; }
+ul.feature-list li, ul.feature-list-2 li { margin-bottom: 0.8rem; position: relative; list-style: disc;}
+ul.feature-list li::marker { color: var(--color-accent); font-size: 1.2rem; }
+ul.feature-list-2 li::marker { color: var(--color-primary-light); font-size: 1.2rem; }
 
-/* =========================================
-   6. PRODUCT PAGE SPECIFIC
-   ========================================= */
-
-
-.hero-content-z {
+.solution-card {
+    background: linear-gradient(145deg, var(--color-primary-dark), #003a4d);
+    color: white;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0, 78, 100, 0.2);
     position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 2rem;
+    z-index: 15; 
 }
 
-.hero-content-z h1 { color: white; margin-bottom: 1.5rem; }
-.hero-content-z p { color: rgba(255,255,255,0.9); font-size: 1.25rem; }
+.solution-card h3, .solution-card h4, .solution-card p, .solution-card ul { color: white; }
+.solution-card h4 { color: var(--color-primary-light); margin-bottom: 0.5rem; }
 
-/* HSI Section dark mode - POTENZIATO */
-.dark-section {
-    background-color: var(--color-primary-dark) !important; /* Forza il colore scuro */
-    color: white !important; /* Forza il testo chiaro per tutta la sezione */
-    padding-top: 6rem; /* Assicurati che abbia il padding standard delle sezioni */
-    padding-bottom: 6rem;
-}
-.dark-section h2 { 
-    color: white !important; /* Forza il colore bianco per l'h2 */
-}
-.dark-section p { 
-    color: rgba(255,255,255,0.8) !important; /* Bianco leggermente più visibile */
-}
-
-/* Stile per il container del grafico/immagine */
-.dark-section .reveal > div[style*="background: rgba(255,255,255,0.1)"] { /* Targetta il box del placeholder */
-    background: rgba(255,255,255,0.15) !important; /* Rendi lo sfondo del box leggermente più visibile */
-    border: 1px solid rgba(255,255,255,0.3) !important; /* Bordo più contrastato */
-    color: rgba(255,255,255,0.7) !important; /* Testo del placeholder più visibile */
-}
-
-/* Stile per la card "High-Throughput" all'interno della dark-section */
-.dark-section .card {
-    background: rgba(255,255,255,0.1) !important; /* Sfondo della card */
-    border: 1px solid rgba(255,255,255,0.2) !important; /* Bordo della card */
-    box-shadow: none !important; /* Rimuovi l'ombra scura, non serve su sfondo scuro */
-    color: white; /* Assicurati che il testo della card sia bianco */
+/* IL MERGE: Technology Section (Sticky Layer 2) */
+/* IL MERGE: Technology Section (Sticky Layer 2) */
+.tech-merge-section {
+    background: linear-gradient(to bottom, var(--color-primary-dark) 0%, #002b36 100%);
+    color: white;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    margin-top: -4rem;
+    margin-bottom: 3rem; 
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    min-height: 100vh; /* RIMESSO: forza a coprire tutto lo schermo */
+    padding-top: calc(var(--header-height) + 4rem);
+    padding-bottom: 5rem;
+    box-shadow: 0 -20px 50px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    /* RIMOSSO justify-content: center; */
 }
 
-.dark-section .card:hover {
-    background: rgba(255,255,255,0.2) !important; /* Hover più evidente */
-    transform: translateY(-3px) !important; /* Leggero sollevamento */
-}
+/* TEAM SECTION (Sticky Layer 3 - Card Affiancate Orizzontalmente) */
 
-/* Icon box all'interno della dark-section card */
-.dark-section .card .icon-box {
-    background: rgba(37, 161, 142, 0.2) !important; /* Accent opacity più alta */
-    color: var(--color-accent) !important; /* Colore dell'icona accentuato */
-}
+.tech-merge-section h2 { color: white; }
+.tech-merge-section p { color: rgba(255, 255, 255, 0.8); }
 
-/* Testo all'interno della card "High-Throughput" */
-.dark-section .card strong {
-    color: white !important; /* Testo forte bianco */
-}
-.dark-section .card p {
-    color: rgba(255,255,255,0.8) !important; /* Testo del paragrafo leggermente più chiaro */
-}
-
-/* Assicurati che la hero-grid funzioni bene nel contesto scuro */
-.dark-section .hero-grid {
+.tech-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Mantiene la proporzione */
-    gap: 4rem;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
-/* Media query per mobile */
-@media (max-width: 900px) {
-    .dark-section .hero-grid {
-        grid-template-columns: 1fr !important; /* Stack su mobile */
-        text-align: center !important;
-    }
-    .dark-section .reveal > div[style*="background: rgba(255,255,255,0.1)"] {
-        height: 250px !important; /* Riduci l'altezza del placeholder su mobile */
-    }
+.tech-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(10px);
 }
-/* =========================================
-   7. TEAM & CONTACTS
-   ========================================= */
+.tech-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+.tech-card h3 { color: white; }
+.tech-card p { color: rgba(255,255,255,0.7); }
+.tech-card ul { margin-top: 1.5rem; color: rgba(255,255,255,0.9); }
+.tech-card ul li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+.tech-card ul li::before { content: '→'; color: var(--color-primary-light); font-weight: bold; }
+
+/* TEAM SECTION (Sticky Layer 3 - Card Affiancate Orizzontalmente) */
+.team-section {
+    background: var(--color-bg);
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    margin-top: -4rem; 
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    min-height: 100vh; /* RIMESSO: forza a coprire tutto lo schermo */
+    padding-top: calc(var(--header-height) + 4rem);
+    padding-bottom: 5rem;
+    box-shadow: 0 -20px 50px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    /* RIMOSSO justify-content: center; */
+}
+
+
 .team-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr; /* Mette le due card una affianco all'altra! */
+    gap: 2rem;
+    max-width: 950px; /* Abbastanza largo per ospitare due card orizzontali */
+    margin: 0 auto;
 }
 
 .member-card {
-    background: white;
-    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    transition: 0.3s;
-    text-align: center;
-    padding-bottom: 2rem;
+    transition: 0.4s ease;
+    padding: 2rem;
+    border: 1px solid rgba(0, 78, 100, 0.06);
+    display: flex; /* Foto a sinistra, testo a destra */
+    align-items: center; 
+    text-align: left; 
 }
 
-.member-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-xl); }
+.member-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: var(--shadow-xl); 
+}
 
 .member-photo {
-    width: 180px;
-    height: 180px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 2.5rem auto 1.5rem auto;
+    margin: 0 1.5rem 0 0; /* Spazio a destra della foto */
     display: block;
     background: #e2e8f0;
     border: 4px solid white;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    flex-shrink: 0; 
 }
 
-.member-info { padding: 1.5rem; }
-.member-role { color: var(--color-accent); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
+.member-info { padding: 0; }
+.member-info h3 { margin-bottom: 0.2rem; font-size: 1.4rem; }
+.member-role { color: var(--color-accent); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.5rem; }
 
-/* Contact Split */
+/* Contact Section (Top Layer, scorre normalmente) */
+.contact-section { 
+    background: white; 
+    position: relative; /* Scivola sopra le altre, non deve essere sticky */
+    z-index: 6; 
+    min-height: 100vh;
+    padding-top: calc(var(--header-height) + 3rem);
+    padding-bottom: 6rem;
+    box-shadow: 0 -20px 40px rgba(0,0,0,0.05);
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    margin-top: -4rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .contact-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    background: white;
-    padding: 4rem;
-    border-radius: var(--radius-lg);
+    gap: 5rem;
+    background: var(--color-surface);
+    padding: 5rem;
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,0,0,0.03);
 }
+
+.contact-info h2 { margin-top: 0.5rem; }
+.contact-desc { margin-bottom: 3rem; }
+.direct-contact h3 { font-size: 1rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.direct-contact a { color: var(--color-primary-dark); font-weight: 700; font-size: 1.8rem; }
+.direct-contact a:hover { color: var(--color-accent); }
+.location { margin-top: 3rem; opacity: 0.7; font-weight: 500; }
+
+.contact-form-container {
+    background: var(--color-bg);
+    padding: 3.5rem;
+    border-radius: var(--radius-lg);
+}
+.contact-form-container h3 { margin-bottom: 2rem; }
 
 .form-input {
     width: 100%;
-    padding: 1rem;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    padding: 1.2rem;
+    background: white;
+    border: 1px solid transparent;
     border-radius: var(--radius-sm);
     margin-bottom: 1.5rem;
     font-family: inherit;
     font-size: 1rem;
     transition: 0.3s;
+    box-shadow: var(--shadow-sm);
 }
-
 .form-input:focus {
     outline: none;
     border-color: var(--color-accent);
-    background: white;
     box-shadow: 0 0 0 4px rgba(37, 161, 142, 0.1);
 }
+label { display: block; margin-bottom: 0.5rem; font-weight: 700; font-size: 0.9rem; color: var(--color-primary-dark); }
 
-/* FIX BOTTONE CONTATTI */
-.contact-split form button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
-    border-radius: 100px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background-color: var(--color-accent);
-    color: white;
-    box-shadow: 0 10px 20px rgba(37, 161, 142, 0.3);
-    border: none;
-    width: 100%;
-    margin-top: 1rem;
-    font-family: 'Satoshi', sans-serif;
+/* Footer */
+footer { 
+    background: #0f172a; 
+    color: white; 
+    padding: 4rem 2rem; 
+    text-align: center; 
+    position: relative;
+    z-index: 6; 
 }
-
-.contact-split form button:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(0, 78, 100, 0.4);
-}
+.footer-logo { height: 45px; margin: 0 auto 1.5rem auto; opacity: 0.9; }
+.footer-tagline { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
+.footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-top: 2rem; }
 
 /* =========================================
-   8. FOOTER & RESPONSIVE
+   6. RESPONSIVE (MOBILE & TABLET)
    ========================================= */
-footer {
-    background: var(--color-primary-dark);
-    color: white;
-    padding: 3rem 2rem;
-    text-align: center;
-    margin-top: auto;
-}
 
-/* =========================================
-   RESPONSIVE (MOBILE) - FIX COMPLETO
-   ========================================= */
-@media (max-width: 900px) {
-    h1 { font-size: 2.5rem; }
-    /* Aggiunto gap per separare meglio su mobile */
-    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
-    
-    /* --- FIX CRITICO SCORRIMENTO MOBILE --- */
-    /* 1. Disabilita completamente l'effetto sticky e resetta i livelli */
-    .hero-sticky-container {
-        position: relative !important; /* Non più sticky */
-        height: auto !important;       /* Altezza naturale in base al contenuto */
-        top: auto !important;          /* Resetta top: 0 */
-        z-index: auto !important;      /* Resetta z-index: 1 */
-        display: block !important;     /* Rimuove allineamenti flex verticali */
-    }
-    
-    /* 2. Aggiusta il padding della hero per compensare l'header fisso */
-    .hero-modern {
-        padding-top: calc(var(--header-height) + 3rem) !important;
-        padding-bottom: 3rem !important;
-    }
-
-    /* 3. Resetta la sezione successiva per farla scorrere normalmente SOTTO */
-    .logos-reveal-section {
+@media (max-width: 992px) {
+    /* RESET STICKY SU MOBILE/TABLET (Sotto i 992px lo sticky è sconsigliato) */
+    .challenge-section, 
+    .tech-merge-section, 
+    .team-section,
+    .contact-section {
         position: relative !important;
-        z-index: auto !important;    /* Resetta z-index: 2 */
-        box-shadow: none !important; /* Rimuove l'ombra */
+        top: auto !important;
+        min-height: auto !important;
+        display: block !important;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
     }
     
-    /* 4. Su mobile l'immagine può essere più semplice */
-    .blob-image {
-        aspect-ratio: auto; /* Lascia che l'altezza si adatti */
-        max-height: 400px;  /* Limita l'altezza su schermi piccoli */
-    }
-    /* --------------------------------------- */
-    
-    .bento-grid { grid-template-columns: 1fr !important; }
-    .span-2, .span-3 { grid-column: span 1 !important; }
-    
-    .contact-split { grid-template-columns: 1fr; padding: 2rem; }
-    
-    /* Nascondi il separatore su mobile */
-    .hide-on-mobile {
-        display: none !important;
+    .tech-merge-section { 
+        margin-top: -3rem; 
+        border-radius: 40px 40px 0 0; 
+        padding-top: 5rem;
     }
     
-    /* Mobile Menu */
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        
-        /* POSIZIONAMENTO CORRETTO */
-        position: absolute;
-        right: 2rem;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1100;
+    .team-section { 
+        margin-top: -3rem; 
+        border-radius: 40px 40px 0 0; 
+        padding-top: 5rem;
     }
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 2px;
-        background: var(--color-primary-dark);
-        margin: 5px 0;
-        transition: 0.3s;
+
+    .contact-section { 
+        border-radius: 40px 40px 0 0; 
+        margin-top: -3rem; 
+        padding-top: 5rem; 
     }
     
-    .nav-menu ul {
-        position: fixed;
-        top: var(--header-height);
-        right: -100%;
-        width: 100%;
-        height: calc(100vh - var(--header-height));
-        background: white;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: 0.4s ease;
-    }
+    /* Le card del team diventano una sotto l'altra su tablet */
+    .team-wrapper { grid-template-columns: 1fr; max-width: 600px; }
     
+    .bento-grid { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: 1fr; }
+    .contact-split { grid-template-columns: 1fr; padding: 3rem; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.8rem; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+    .hero-modern { padding-top: calc(var(--header-height) + 3rem); }
+    .blob-image-container { margin: 0 auto; }
+    
+    .menu-toggle { display: block; background: none; border: none; cursor: pointer; position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); z-index: 1100; }
+    .menu-toggle span { display: block; width: 25px; height: 2px; background: var(--color-primary-dark); margin: 5px 0; transition: 0.3s; }
+    
+    .nav-menu ul { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: white; flex-direction: column; align-items: center; justify-content: center; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); }
     .nav-menu ul.active { right: 0; }
+    
+    .contact-form-container { padding: 2rem; }
+    .contact-split { padding: 1.5rem; gap: 3rem; }
+    .tech-merge-section { border-radius: 24px 24px 0 0; }
+    .team-section { border-radius: 24px 24px 0 0; }
+    .contact-section { border-radius: 24px 24px 0 0; }
+
+    /* Fix Team Card su Smartphone (Tornano in verticale per occupare meno spazio in larghezza) */
+    .member-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 1.5rem;
+    }
+    .member-photo {
+        margin: 0 auto 1.5rem auto;
+    }
 }
 
 /* =========================================
-   9. ANIMATIONS
+   7. ANIMATIONS
    ========================================= */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
-}
-
-.product-hero-cinematic {
-    /* Assicurati che ci sia uno spazio sufficiente per il contenuto */
-    padding-top: calc(var(--header-height) + 4rem); /* Regola in base all'altezza dell'header */
-    padding-bottom: 6rem; /* Padding per la sezione */
-    
-    /* SFONDO SCURO */
-    background-color: var(--color-primary-dark); /* Usa il tuo blu scuro primario */
-    color: white; /* Assicurati che tutto il testo all'interno sia bianco */
-
-    /* Stile cinematico opzionale: aggiungi un gradiente per un look più moderno */
-    background-image: linear-gradient(135deg, var(--color-primary-dark) 0%, #003a4d 100%);
-    /* O un'immagine con un overlay scuro */
-    /* background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('path/to/your/hero-image.jpg'); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    
-    display: flex; /* Centra il contenuto verticalmente */
-    align-items: center; /* Centra il contenuto verticalmente */
-    justify-content: center; /* Centra il contenuto orizzontalmente */
-    text-align: center; /* Centra il testo */
-    min-height: 500px; /* Altezza minima per un look d'impatto */
-    position: relative; /* Per posizionare elementi all'interno se necessario */
-    overflow: hidden; /* Per eventuali effetti o elementi che escono dai bordi */
-}
-
-/* =========================================
-   6. PRODUCT PAGE SPECIFIC (aggiornato per Hero Grid)
-   ========================================= */
-
-.product-hero-cinematic {
-    padding-top: calc(var(--header-height) + 4rem); 
-    padding-bottom: 6rem;
-    min-height: 600px; /* Aumentiamo leggermente l'altezza minima per la griglia */
-    position: relative;
-    overflow: hidden;
-
-    background-color: var(--color-primary-dark); 
-    background-image: linear-gradient(135deg, var(--color-primary-dark) 0%, #003a4d 100%); 
-    
-    color: white; 
-    /* Rimuoviamo display: flex; align-items: center; justify-content: center; text-align: center; 
-       perché la griglia gestirà il layout */
-}
-
-/* Stile per il container della griglia della hero prodotto */
-.hero-grid-product {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Due colonne di pari larghezza */
-    gap: 4rem; /* Spazio tra le colonne */
-    align-items: center; /* Centra verticalmente il contenuto delle colonne */
-    height: 100%; /* La griglia occupa l'altezza disponibile nel product-hero-cinematic */
-}
-
-.hero-content-z {
-    position: relative;
-    z-index: 2; /* Assicura che il testo sia sopra lo sfondo */
-    padding: 0; /* Rimuovi il padding orizzontale se già gestito dal container */
-    text-align: left; /* Il testo sarà allineato a sinistra nella sua colonna */
-}
-
-.hero-content-z h1 { 
-    color: white; 
-    margin-bottom: 1.5rem; 
-    font-size: clamp(2.5rem, 4.5vw, 3.8rem); /* Riduci leggermente la dimensione H1 se troppo grande */
-}
-.hero-content-z p { 
-    color: rgba(255,255,255,0.9); 
-    font-size: 1.25rem; 
-    max-width: none; /* Rimuovi il max-width qui, la griglia gestisce la larghezza */
-    margin-left: 0; /* Rimuovi i margini auto */
-    margin-right: 0;
-}
-
-.hero-tag {
-    /* Manteniamo lo stile inline per ora, o puoi definire qui */
-    display: inline-block; /* Assicurati che sia inline-block per non prendere tutta la larghezza */
-    padding: 0.5rem 1rem;
-    background: rgba(255,255,255,0.2); 
-    color: white;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* =========================================
-   6. PRODUCT PAGE SPECIFIC (Finalizzazione Hero Image)
-   ========================================= */
-
-/* Assicurati che il container della griglia sia ben definito */
-.hero-grid-product {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    height: 100%; /* Importante per dare altezza all'immagine */
-    position: relative; /* Se hai bisogno di posizionamento assoluto per altri elementi */
-}
-
-.product-hero-cinematic {
-    padding-top: calc(var(--header-height) + 4rem); 
-    padding-bottom: 6rem;
-    min-height: 500px; /* Altezza minima, può essere più grande */
-    position: relative;
-    overflow: hidden;
-
-    background-color: var(--color-primary-dark); 
-    background-image: linear-gradient(135deg, var(--color-primary-dark) 0%, #003a4d 100%); 
-    
-    color: white; 
-    
-    /* Nuovo: Centra il contenuto orizzontalmente e verticalmente */
-    display: flex;
-    flex-direction: column; /* Impila il contenuto in una colonna */
-    justify-content: center;
-    align-items: center;
-    text-align: center; /* Centra il testo */
-}
-
-/* Adatta hero-content-z per il layout a colonna singola */
-.hero-content-z {
-    position: relative;
-    z-index: 2;
-    max-width: 800px; /* Limita la larghezza del testo */
-    padding: 0 2rem;
-    text-align: center; /* Assicurati che il testo sia centrato */
-}
-
-/* Adatta anche l'h1 e p per il nuovo allineamento */
-.hero-content-z h1 { 
-    color: white; 
-    margin-bottom: 1.5rem; 
-    font-size: clamp(2.8rem, 5vw, 4rem); /* Regola la dimensione del titolo */
-    line-height: 1.1;
-}
-.hero-content-z p { 
-    color: rgba(255,255,255,0.9); 
-    font-size: 1.25rem; 
-    max-width: 700px; /* Per una migliore leggibilità */
-    margin-left: auto;
-    margin-right: auto;
-}
-.hero-tag {
-    /* Manteniamo lo stile inline per ora, o puoi definire qui */
-    display: inline-block; /* Assicurati che sia inline-block */
-    padding: 0.5rem 1rem;
-    background: rgba(255,255,255,0.2); 
-    color: white;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.product-hero-image {
-    max-width: 100%; /* L'immagine non supera la larghezza del contenitore */
-    height: auto; /* L'altezza si adatta automaticamente per mantenere le proporzioni */
-    max-height: 100%; /* Fondamentale: l'altezza massima è quella del contenitore */
-    object-fit: contain; /* L'immagine si ridimensiona per stare interamente nel contenitore */
-    
-    /* Rimuovi completamente qualsiasi bordo o box-shadow che potrebbe provenire da altre regole */
-    border: none !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    
-    /* Regola la posizione se vuoi che sia leggermente fuori dal bordo destro */
-    /* transform: translateX(10%); */ /* Sposta l'immagine del 10% verso destra */
-    /* margin-right: -5%; */ /* Un altro modo per farla sporgere leggermente a destra */
-}
-
-/* Media query per dispositivi mobili */
-@media (max-width: 900px) {
-    .hero-grid-product {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .product-hero-image-container {
-        justify-content: center; /* Centra l'immagine su mobile */
-        height: auto;
-        padding-left: 0;
-        min-height: 200px; /* Assicura un'altezza minima per l'immagine */
-    }
-    .product-hero-image {
-        width: 90%; /* Occupa quasi tutta la larghezza su mobile */
-        max-height: 300px; /* Limita l'altezza su mobile se diventa troppo grande */
-    }
-}
-
-/* Stile per il placeholder dell'immagine (o per l'immagine stessa) */
-.image-placeholder-box {
-    background: rgba(255,255,255,0.1);
-    height: 400px; /* Altezza fissa per il placeholder */
-    width: 100%;
-    max-width: 500px; /* Limita la larghezza */
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(255,255,255,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.6);
-    font-family: monospace;
-    font-size: 1.2rem;
-    text-align: center;
-    /* Puoi aggiungere una leggera ombra o un effetto glassmorphism qui se vuoi */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Se userai un <img> tag direttamente: */
-.product-hero-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombra per l'immagine */
-    object-fit: cover;
-}
-
-
-/* Media query per dispositivi mobili */
-@media (max-width: 900px) {
-    .hero-grid-product {
-        grid-template-columns: 1fr; /* Una sola colonna su mobile */
-        text-align: center; /* Centra il testo su mobile */
-        gap: 2rem;
-    }
-    .hero-content-z {
-        text-align: center; /* Centra il testo nella colonna su mobile */
-    }
-    .hero-content-z h1 {
-        font-size: clamp(2rem, 8vw, 3rem); /* Ridimensiona l'H1 per mobile */
-    }
-    .image-placeholder-box {
-        height: 300px; /* Ridurre l'altezza del placeholder su mobile */
-    }
-    .hero-tag {
-        margin-left: auto;
-        margin-right: auto; /* Centra il tag su mobile */
-    }
-}
-
-
-/* Stile per l'immagine dell'occhio nella sezione "The Retinal Window" */
-.hsi-retinal-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 400px; /* Limita l'altezza massima per il layout */
-    display: block; /* Per rimuovere eventuali spazi extra sotto l'immagine */
-    margin: 0 auto; /* Centra l'immagine nella sua colonna */
-    object-fit: contain;
-    /* Puoi aggiungere una leggera ombra o filtro se vuoi che risalti un po' di più sul blu scuro */
-    /* filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); */
-}
-
-/* Media query per mobile per l'immagine della dark-section */
-@media (max-width: 900px) {
-    .hsi-retinal-image {
-        max-height: 300px; /* Ridotto su mobile */
-    }
 }
