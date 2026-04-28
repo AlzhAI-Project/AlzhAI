@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlzhAI | Intelligence for Early Alzheimer’s Detection</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="images/icona.png">
@@ -11,8 +13,8 @@
 
 <body>
     <header>
-        <a href="index.html" class="logo">
-            <img src="images/AlzhAI_transparent_dark.png" alt="AlzhAI Logo">
+        <a href="landingPage.html" class="logo">
+            <img src="images/AlzhAI_transparent_dark.png" alt="AlzhAI Logo" style="height: 40px;">
         </a>
         
         <button class="menu-toggle" aria-label="Open menu">
@@ -23,7 +25,7 @@
             <ul>
                 <li><a href="#vision" class="active-link">Vision</a></li>
                 <li><a href="#technology">Technology</a></li>
-                <li><a href="team.html">Our Team</a></li>
+                <li><a href="#team">Our Team</a></li>
                 <li><a href="#contact">Get in Touch</a></li>
             </ul>
         </nav>
@@ -34,14 +36,13 @@
             <section class="hero-modern">
                 <div class="container hero-grid">
                     <div class="hero-text reveal">
-                        <span class="hero-tag" style="color: #64748b">Setting a New Standard</span>
-                        <h1>Detecting Alzheimer’s <br> <span class="text-gradient">When it Still Matters.</span></h1>
-                        <p style="margin: 1.5rem 0 2.5rem 0;">
-                            A machine learning powered platform turning clinical data and cognitive assessments into actionable intelligence for early Alzheimer’s detection and personalized care.
-                            <br> <b>Designed for Clinical Workflow.</b>
+                        <span class="hero-tag">Setting a New Standard</span>
+                        <h1>Detecting&nbsp;Alzheimer’s <br> <span class="text-gradient">When it Still Matters.</span></h1>
+                        <p class="hero-description">
+                            An AI-powered platform transforming routine clinical data, cognitive assessments, and MRI scans into actionable intelligence for early detection and personalized care.
                         </p>
                         <div class="hero-btns">
-                            <a href="#technology" class="btn btn-primary">Discover the Technology</a>
+                            <a href="#contact" class="btn btn-primary">Join our Mission</a>
                         </div>
                     </div>
                     <div class="hero-visual reveal">
@@ -53,91 +54,150 @@
             </section>
         </div>
 
-        <section class="logos-reveal-section" style="background: white; padding: 3rem 0; border-bottom: 1px solid #e2e8f0; position: relative; z-index: 2;">
+        <section class="logos-reveal-section">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <span style="text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 700; font-size: 0.85rem;">Recognized by Leading Innovation Hubs</span>
+                <div class="logos-title text-center">
+                    <span>Recognized by Leading Innovation Hubs</span>
                 </div>
-                <div class="reveal" style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;">
-                    <a href="https://s2p.it/" target="_blank" rel="noopener noreferrer" style="opacity: 0.8; display: flex; align-items: center; gap: 1rem;">
-                        <img src="images/s2p.webp" alt="Switch2Product" style="height: 45px; filter: grayscale(100%);">
-                        <div style="text-align: left;">
-                            <strong style="color: var(--color-primary-dark); display: block;">Switch2Product</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">Selected for Incubation</span>
+                <div class="reveal logos-flex">
+                    <div class="logo-item">
+                        <img src="images/s2p.webp" alt="Switch2Product">
+                        <div class="logo-text">
+                            <strong>Switch2Product</strong>
+                            <span>Selected for Incubation</span>
                         </div>
-                    </a>
-                    <div style="height: 40px; width: 1px; background: #e2e8f0;" class="hide-on-mobile"></div>
-                    <a href="https://tef.tech/" target="_blank" rel="noopener noreferrer" style="opacity: 0.8; display: flex; align-items: center; gap: 1rem;">
-                        <img src="images/tech_europe_foundation_logo.jpeg" alt="TEF" style="height: 45px; filter: grayscale(100%);">
-                        <div style="text-align: left;">
-                            <strong style="color: var(--color-primary-dark); display: block;">Tech Europe Foundation</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">TEF Ignition Finalist</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/tech_europe_foundation_logo.jpeg" alt="TEF">
+                        <div class="logo-text">
+                            <strong>Tech Europe Foundation</strong>
+                            <span>TEF Ignition Finalist - €2k Grant</span>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-padding" id="technology">
+        <section class="section-padding challenge-section">
             <div class="container">
-                <div class="text-center reveal" style="margin-bottom: 4rem;">
-                    <h2 style="font-size: 2.5rem;">The Challenge in Standard Care</h2>
-                    <p style="font-size: 1.2rem; color: var(--text-muted);">Current diagnostic windows miss the opportunity for intervention by decades.</p>
+                <div class="text-center reveal section-header">
+                    <h2>The Challenge isn't Just the&nbsp;Disease <br> It's the Timing</h2>
+                    <p>Current diagnostics fail to capture the critical window for intervention.</p>
                 </div>
 
                 <div class="bento-grid">
                     <div class="card reveal">
-                        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg></div>
-                        <h3>The Latency Gap</h3>
-                        <p>Most diagnoses occur only after symptom onset, when neurological damage is often irreversible. We target the pre-symptomatic phase.</p>
+                        <h3>Diagnostic Latency</h3>
+                        <p>Over 50% of cases are diagnosed too late, typically in moderate to advanced stages when treatments are least effective.</p>
                     </div>
                     <div class="card reveal">
-                        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg></div>
-                        <h3>Barrier to Screening</h3>
-                        <p>Traditional PET scans and CSF markers are invasive and costly. They are endpoints, not scalable screening solutions.</p>
+                        <h3>New Treatments</h3>
+                        <p>New Disease Modifying Treatments (DMTs) need:</p>
+                        <ul class="feature-list">
+                            <li>High-Sensitivity Screening</li>
+                            <li>Frequent, low-cost monitoring</li>
+                            <li>Sensitivity to slight changes in presymptomatic phase</li>
+                        </ul>
                     </div>
-                    <div class="card reveal" style="background-color: var(--color-primary-dark); color: white;">
-                        <h3 style="color:white; margin-bottom:1rem;">The AlzhAI Solution</h3>
-                        <p style="color:rgba(255,255,255,0.9); margin-bottom: 2rem; line-height: 1.6;">
-                            We bridge the gap by converting routine clinical data and cognitive assessments into precise Machine Learning insights for early detection and stratification.
-                        </p>
-                        <a href="#contact" style="color:var(--color-accent); font-weight:700; text-decoration: none;">Discover the Technology &rarr;</a>
+                    <div class="card reveal solution-card">
+                        <h3>Our Solution?</h3>
+                        <h4>One Platform for all AD Stages</h4>
+                        <ul class="feature-list-2">
+                            <li>Accurate Early Detection</li>
+                            <li>Continuous Follow-Up</li>
+                            <li>Precision Personalized Care</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <section class="section-padding" id="contact" style="background: white;">
+        <section id="technology" class="section-padding tech-merge-section">
             <div class="container">
-                <div class="contact-split reveal">
-                    <div>
-                        <span class="hero-tag" style="background: rgba(37, 161, 142, 0.1); color: var(--color-accent);">Join the Future of Alzheimer's Detection</span>
-                        <h2 style="margin-top: 1rem;">Ready to collaborate?</h2>
-                        <p style="margin-bottom: 2rem; max-width: 400px;">
-                            Whether you are a clinical center looking to adopt our tech, or an investor interested in our journey, we'd love to hear from you.
-                        </p>
-                        
-                        <div style="margin-bottom: 1.5rem;">
-                            <h3 style="font-size: 1.1rem; color: var(--color-primary-dark);">Direct Contact</h3>
-                            <a href="mailto:team@alzh-ai.com" style="color: var(--color-accent); font-weight: 700; font-size: 1.2rem;">team@alzh-ai.com</a>
-                        </div>
-                        
-                        <div style="margin-top: 2rem; opacity: 0.6;">
-                            <p style="font-size: 0.9rem;">📍 Based in Milan, Italy</p>
+                <div class="section-title text-center reveal">
+                    <h2>Two AI Models. Complete Clinical Coverage.</h2>
+                    <p>Bridging the gap from routine screening to precision diagnostics.</p>
+                </div>
+                <div class="tech-grid">
+                    <div class="card tech-card reveal">
+                        <h3>Routine Clinical Data Model</h3>
+                        <p>Deep Learning applied to standard clinical inputs (health history and cognitive assesment) to detect Alzheimer's risk and stratify patients for further evaluation.</p>
+                        <ul>
+                            <li><b>Accurate Screening</b></li>
+                            <li><b>Interpretable Clinical Results</b></li>
+                        </ul>
+                    </div>
+                    <div class="card tech-card reveal">
+                        <h3>MRI CNN Analysis</h3>
+                        <p>Advanced Convolutional Neural Networks (CNN) for objective analysis of MRI scans, identifying invisible structural biomarkers like hippocampal atrophy.</p>
+                        <ul>
+                            <li><b>Presymptomatic disease prediction</b></li>
+                            <li><b>Automated structural volumetry</b></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="section-padding team-section">
+            <div class="container text-center reveal">
+                <h2>Meet the Team</h2>
+                <p style="max-width: 600px; margin: 0 auto 4rem auto;">
+                    Restless innovators on a mission to reinvent Alzheimer’s diagnosis through cutting-edge Artificial Intelligence.
+                </p>
+                
+                <div class="team-wrapper">
+                    <div class="member-card reveal">
+                        <img src="images/team images/daniele.png" alt="Daniele" class="member-photo">
+                        <div class="member-info">
+                            <h3>Daniele De Carli</h3>
+                            <span class="member-role">Co-Founder</span>
+                            <p style="font-size: 0.9rem;">Engineering Physics<br>Politecnico di Milano</p>
                         </div>
                     </div>
 
-                    <div style="background: #f8fafc; padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid #e2e8f0;">
-                        <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Send us a message</h3>
+                    <div class="member-card reveal">
+                        <img src="images/team images/alberto.png" alt="Alberto" class="member-photo">
+                        <div class="member-info">
+                            <h3>Alberto Sudati</h3>
+                            <span class="member-role">Co-Founder</span>
+                            <p style="font-size: 0.9rem;">Engineering Physics<br>Politecnico di Milano</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding contact-section" id="contact">
+            <div class="container">
+                <div class="contact-split reveal">
+                    <div class="contact-info">
+                        <span class="hero-tag tag-accent">Join the Future of Alzheimer's Detection</span>
+                        <h2>Ready to collaborate?</h2>
+                        <p class="contact-desc">
+                            Whether you are a clinical center looking to adopt our technology, or a partner interested in our journey, we look forward to connecting.
+                        </p>
+                        
+                        <div class="direct-contact">
+                            <h3>Direct Contact</h3>
+                            <a href="mailto:team@alzh-ai.com">team@alzh-ai.com</a>
+                        </div>
+                        
+                        <div class="location">
+                            <p>📍 Based in Milan, Italy</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <h3>Send us a message</h3>
                         <form action="https://formspree.io/f/xqadpovl" method="POST">
-                            <label for="email" style="display:block; margin-bottom: 0.5rem; font-weight: 700; font-size: 0.9rem;">Work Email</label>
+                            <label for="email">Work Email</label>
                             <input type="email" id="email" name="email" placeholder="name@organization.com" class="form-input" required>
 
-                            <label for="message" style="display:block; margin-bottom: 0.5rem; font-weight: 700; font-size: 0.9rem;">Interest / Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Tell us how you'd like to cooperate..." class="form-input" required></textarea>
+                            <label for="message">Inquiry Details</label>
+                            <textarea id="message" name="message" rows="4" placeholder="How can we cooperate?" class="form-input" required></textarea>
 
-                            <button type="submit" class="btn btn-primary" style="width: 100%; border: none; justify-content: center;">Send Inquiry</button>
+                            <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
                         </form>
                     </div>
                 </div>
@@ -146,10 +206,10 @@
     </main>
 
     <footer>
-        <div class="container">
-            <img src="images/AlzhAI_transparent_light.png" alt="Logo" style="height: 40px; margin: 0 auto 2rem auto; opacity: 0.8;">
-            <p>Intelligence for a healthier brain.</p>
-            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 1rem;">&copy; 2026 AlzhAI. All rights reserved.</p>
+        <div class="container footer-content">
+            <img src="images/AlzhAI_transparent_light.png" alt="Logo" class="footer-logo">
+            <p class="footer-tagline">Intelligence for a healthier brain.</p>
+            <p class="footer-copy">&copy; 2026 AlzhAI. All rights reserved.</p>
         </div>
     </footer>
 </body>
