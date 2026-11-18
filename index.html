@@ -2,214 +2,146 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlzhAI | Intelligence for Early Alzheimer’s Detection</title>
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <meta name="theme-color" content="#082b30">
+    <meta name="description" content="AlzhAI helps clinicians use routine clinical data to assess the risk of progression from mild cognitive impairment to Alzheimer’s dementia. Request a demo.">
+    <title>AlzhAI | Earlier Alzheimer’s Detection</title>
+    <link rel="icon" type="image/png" href="images/icona.png">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-    <link rel="icon" type="image/png" sizes="32x32" href="images/icona.png">
 </head>
-
 <body>
-    <header>
-        <a href="index.html" class="logo">
-            <img src="images/AlzhAI_transparent_dark.png" alt="AlzhAI Logo" style="height: 40px;">
-        </a>
-        
-        <button class="menu-toggle" aria-label="Open menu">
-            <span></span><span></span><span></span>
-        </button>
-
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="#vision" class="active-link">Vision</a></li>
-                <li><a href="#technology">Technology</a></li>
-                <li><a href="#team">Our Team</a></li>
-                <li><a href="#contact">Get in Touch</a></li>
-            </ul>
-        </nav>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <img src="images/alzhai-logo-light.png" width="432" height="140" alt="AlzhAI home">
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+            <nav class="site-nav" id="primary-menu" aria-label="Main">
+                <a href="#vision">Vision</a>
+                <a href="#technology">Technology</a>
+                <a href="#team">Team</a>
+                <a href="#contact" class="nav-contact">Get in touch <span aria-hidden="true">↗</span></a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <div class="hero-sticky-container" id="vision">
-            <section class="hero-modern">
-                <div class="container hero-grid">
-                    <div class="hero-text reveal">
-                        <span class="hero-tag">Setting a New Standard</span>
-                        <h1>Detecting Alzheimer’s <br> <span class="text-gradient">When it Still Matters.</span></h1>
-                        <p class="hero-description">
-                            An AI-powered platform transforming routine clinical data, cognitive assessments, and MRI scans into actionable intelligence for early detection and personalized care.
-                        </p>
-                        <div class="hero-btns">
-                            <a href="#contact" class="btn btn-primary">Join our Mission</a>
-                        </div>
-                    </div>
-                    <div class="hero-visual reveal">
-                        <div class="blob-image-container">
-                            <img src="images/why.jpg" alt="AlzhAI Visionary Diagnostics" class="blob-image">
-                        </div>
+    <main id="main" tabindex="-1">
+        <section class="hero" id="vision" aria-labelledby="hero-title">
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <h1 id="hero-title">Detecting Alzheimer’s <em>When it still matters.</em></h1>
+                    <p class="hero-description">AlzhAI helps clinicians use data from routine visits to assess the risk of progression to Alzheimer’s dementia and plan follow-up for each patient.</p>
+                    <div class="hero-actions">
+                        <a class="button button-mint" href="#contact">Request a demo <span aria-hidden="true">↗</span></a>
+                        <a class="hero-secondary" href="#technology">See how it works <span aria-hidden="true">↓</span></a>
                     </div>
                 </div>
-            </section>
-        </div>
-
-        <section class="logos-reveal-section">
-            <div class="container">
-                <div class="logos-title text-center">
-                    <span>Recognized by Leading Innovation Hubs</span>
-                </div>
-                <div class="reveal logos-flex">
-                    <div class="logo-item">
-                        <img src="images/s2p.webp" alt="Switch2Product">
-                        <div class="logo-text">
-                            <strong>Switch2Product</strong>
-                            <span>Selected for Incubation</span>
-                        </div>
-                    </div>
-                    <div class="logo-item">
-                        <img src="images/tech_europe_foundation_logo.jpeg" alt="TEF">
-                        <div class="logo-text">
-                            <strong>Tech Europe Foundation</strong>
-                            <span>TEF Ignition Finalist - €2k Grant</span>
-                        </div>
-                    </div>
+                <div class="hero-image">
+                    <img src="images/hero-alzhai.jpg" width="1500" height="1130" alt="A young child and an older man smiling at each other by a window" fetchpriority="high">
                 </div>
             </div>
         </section>
 
-        <section class="section-padding challenge-section">
-            <div class="container">
-                <div class="text-center reveal section-header">
-                    <h2>The Challenge isn't Just the&nbsp;Disease <br> It's the Timing</h2>
-                    <p>Current diagnostics fail to capture the critical window for intervention.</p>
-                </div>
+        <section class="recognition" aria-labelledby="recognition-title">
+            <div class="container recognition-inner">
+                <h2 id="recognition-title">Recognition</h2>
+                <ul class="recognition-list">
+                    <li>
+                        <img src="images/s2p.webp" alt="" width="48" height="48" loading="lazy">
+                        <div><strong>Switch2Product</strong><p>Incubation finalist</p></div>
+                    </li>
+                    <li>
+                        <img src="images/tech_europe_foundation_logo.jpeg" alt="" width="48" height="48" loading="lazy">
+                        <div><strong>Tech Europe Foundation</strong><p>TEF Ignition finalist · €2,000 grant</p></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-                <div class="bento-grid">
-                    <div class="card reveal">
-                        <h3>Diagnostic Latency</h3>
-                        <p>Over 50% of cases are diagnosed too late, typically in moderate to advanced stages when treatments are least effective.</p>
-                    </div>
-                    <div class="card reveal">
-                        <h3>New Treatments</h3>
-                        <p>New Disease Modifying Treatments (DMTs) need:</p>
-                        <ul class="feature-list">
-                            <li>High-Sensitivity Screening</li>
-                            <li>Frequent, low-cost monitoring</li>
-                            <li>Sensitivity to slight changes in presymptomatic phase</li>
-                        </ul>
-                    </div>
-                    <div class="card reveal solution-card">
-                        <h3>Our Solution?</h3>
-                        <h4>One Platform for all AD Stages</h4>
-                        <ul class="feature-list-2">
-                            <li>Accurate Early Detection</li>
-                            <li>Continuous Follow-Up</li>
-                            <li>Precision Personalized Care</li>
-                        </ul>
-                    </div>
+        <section class="section" aria-labelledby="challenge-title">
+            <div class="container editorial-grid">
+                <h2 class="section-title" id="challenge-title">Why timing matters</h2>
+                <div class="editorial-copy">
+                    <p>Early changes in memory and thinking can be subtle, and memory clinics have limited capacity for in-depth assessments.</p>
+                    <p>Spotting who may be at higher risk can help care teams prioritise follow-up and discuss next steps with patients and families.</p>
                 </div>
             </div>
         </section>
 
-        <section id="technology" class="section-padding tech-merge-section">
+        <section class="section technology" id="technology" aria-labelledby="technology-title">
             <div class="container">
-                <div class="section-title text-center reveal">
-                    <h2>Two AI Models. Complete Clinical Coverage.</h2>
-                    <p>Bridging the gap from routine screening to precision diagnostics.</p>
-                </div>
-                <div class="tech-grid">
-                    <div class="card tech-card reveal">
-                        <h3>Routine Clinical Data Model</h3>
-                        <p>Deep Learning applied to standard clinical inputs (health history and cognitive assesment) to detect Alzheimer's risk and stratify patients for further evaluation.</p>
-                        <ul>
-                            <li><b>Accurate Screening</b></li>
-                            <li><b>Interpretable Clinical Results</b></li>
-                        </ul>
+                <article class="clinical-feature">
+                    <div class="clinical-copy">
+                        <p class="eyebrow">Current model</p>
+                        <h2 class="section-title" id="technology-title">Assessing risk from routine visits</h2>
+                        <p>For patients with mild cognitive impairment (MCI), AlzhAI uses information care teams already collect to help clinicians decide who may benefit from further evaluation.</p>
+                        <a class="button button-mint" href="#contact">Request a demo <span aria-hidden="true">↗</span></a>
                     </div>
-                    <div class="card tech-card reveal">
-                        <h3>MRI CNN Analysis</h3>
-                        <p>Advanced Convolutional Neural Networks (CNN) for objective analysis of MRI scans, identifying invisible structural biomarkers like hippocampal atrophy.</p>
-                        <ul>
-                            <li><b>Presymptomatic disease prediction</b></li>
-                            <li><b>Automated structural volumetry</b></li>
-                        </ul>
-                    </div>
-                </div>
+                    <dl class="clinical-details">
+                        <div>
+                            <dt>What it uses</dt>
+                            <dd>Medical history and results from neuropsychological assessments, such as tests of memory and thinking.</dd>
+                        </div>
+                        <div>
+                            <dt>What it shows</dt>
+                            <dd>An estimate of how likely a patient with MCI is to progress to dementia due to Alzheimer’s disease.</dd>
+                        </div>
+                    </dl>
+                </article>
             </div>
         </section>
 
-        <section id="team" class="section-padding team-section">
-            <div class="container text-center reveal">
-                <h2>Meet the Team</h2>
-                <p style="max-width: 600px; margin: 0 auto 4rem auto;">
-                    Restless innovators on a mission to reinvent Alzheimer’s diagnosis through cutting-edge Artificial Intelligence.
-                </p>
-                
-                <div class="team-wrapper">
-                    <div class="member-card reveal">
-                        <img src="images/team images/daniele.png" alt="Daniele" class="member-photo">
-                        <div class="member-info">
+        <section class="section" id="team" aria-labelledby="team-title">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title" id="team-title">The team behind AlzhAI</h2>
+                </div>
+                <div class="team-grid">
+                    <article class="member">
+                        <img src="images/team%20images/daniele-portrait.png" alt="" width="320" height="320" loading="lazy">
+                        <div>
                             <h3>Daniele De Carli</h3>
-                            <span class="member-role">Co-Founder</span>
-                            <p style="font-size: 0.9rem;">Engineering Physics<br>Politecnico di Milano</p>
+                            <p class="member-role">Co-founder</p>
+                            <p>Engineering Physics<br>Politecnico di Milano</p>
                         </div>
-                    </div>
-
-                    <div class="member-card reveal">
-                        <img src="images/team images/alberto.png" alt="Alberto" class="member-photo">
-                        <div class="member-info">
+                    </article>
+                    <article class="member">
+                        <img src="images/team%20images/alberto-portrait.png" alt="" width="320" height="320" loading="lazy">
+                        <div>
                             <h3>Alberto Sudati</h3>
-                            <span class="member-role">Co-Founder</span>
-                            <p style="font-size: 0.9rem;">Engineering Physics<br>Politecnico di Milano</p>
+                            <p class="member-role">Co-founder</p>
+                            <p>Engineering Physics<br>Politecnico di Milano</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="section-padding contact-section" id="contact">
-            <div class="container">
-                <div class="contact-split reveal">
-                    <div class="contact-info">
-                        <span class="hero-tag tag-accent">Join the Future of Alzheimer's Detection</span>
-                        <h2>Ready to collaborate?</h2>
-                        <p class="contact-desc">
-                            Whether you are a clinical center looking to adopt our technology, or a partner interested in our journey, we look forward to connecting.
-                        </p>
-                        
-                        <div class="direct-contact">
-                            <h3>Direct Contact</h3>
-                            <a href="mailto:team@alzh-ai.com">team@alzh-ai.com</a>
-                        </div>
-                        
-                        <div class="location">
-                            <p>📍 Based in Milan, Italy</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-container">
-                        <h3>Send us a message</h3>
-                        <form action="https://formspree.io/f/xqadpovl" method="POST">
-                            <label for="email">Work Email</label>
-                            <input type="email" id="email" name="email" placeholder="name@organization.com" class="form-input" required>
-
-                            <label for="message">Inquiry Details</label>
-                            <textarea id="message" name="message" rows="4" placeholder="How can we cooperate?" class="form-input" required></textarea>
-
-                            <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
-                        </form>
-                    </div>
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="container contact-inner">
+                <div>
+                    <h2 class="section-title" id="contact-title">See AlzhAI in action</h2>
+                    <p>Request a walkthrough to see what the model uses and how it presents risk estimates. We’re based in Milan, Italy, and welcome collaboration enquiries.</p>
+                </div>
+                <div class="contact-actions">
+                    <a class="button button-dark" href="mailto:alzhai.project@gmail.com?subject=AlzhAI%20demo%20request">Request a demo <span aria-hidden="true">↗</span></a>
+                    <p class="contact-note">Write to <a href="mailto:alzhai.project@gmail.com">alzhai.project@gmail.com</a> and leave out patient records and health information. <a href="privacy-policy.html">Read our privacy policy.</a></p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container footer-content">
-            <img src="images/AlzhAI_transparent_light.png" alt="Logo" class="footer-logo">
-            <p class="footer-tagline">Intelligence for a healthier brain.</p>
-            <p class="footer-copy">&copy; 2026 AlzhAI. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="index.html" class="brand"><img src="images/alzhai-logo-light.png" width="432" height="140" alt="AlzhAI home"></a>
+            <small>&copy; 2026 AlzhAI</small>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="privacy-policy.html">Privacy policy</a>
+            </nav>
         </div>
     </footer>
 </body>
