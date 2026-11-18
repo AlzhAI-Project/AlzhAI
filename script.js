@@ -1,95 +1,62 @@
-// Mobile Menu
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('nav ul');
-const menuIcon = menuToggle.querySelectorAll('span');
+(() => {
+    'use strict';
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    
-    // Simple Hamburger Animation
-    if(navMenu.classList.contains('active')) {
-        menuIcon[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        menuIcon[1].style.opacity = '0';
-        menuIcon[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-        menuIcon[0].style.transform = 'none';
-        menuIcon[1].style.opacity = '1';
-        menuIcon[2].style.transform = 'none';
+    const header = document.querySelector('.site-header');
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('primary-menu');
+
+    if (!header || !toggle || !menu) return;
+
+    header.classList.add('has-menu-toggle');
+    const mobile = window.matchMedia('(max-width: 700px)');
+    const scrollTolerance = 6;
+    let previousScroll = window.scrollY;
+    let scrollFrame = 0;
+
+    function updateHeader() {
+        scrollFrame = 0;
+        const viewport = document.documentElement;
+        const scroll = Math.max(0, Math.min(window.scrollY, viewport.scrollHeight - viewport.clientHeight));
+        if (scroll <= header.offsetHeight) {
+            header.classList.remove('is-hidden');
+        } else {
+            const movement = scroll - previousScroll;
+            if (Math.abs(movement) < scrollTolerance) return;
+            header.classList.toggle('is-hidden', movement > 0 && !menu.classList.contains('is-open'));
+        }
+        previousScroll = scroll;
     }
-});
 
-// Scroll Animation (Reveal on Scroll)
-const revealElements = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', () => {
+        if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateHeader);
+    }, { passive: true });
 
-const revealOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            revealOnScroll.unobserve(entry.target);
+    function setMenu(open) {
+        toggle.setAttribute('aria-expanded', String(open));
+        menu.classList.toggle('is-open', open);
+        if (open) header.classList.remove('is-hidden');
+    }
+
+    toggle.addEventListener('click', () => {
+        setMenu(toggle.getAttribute('aria-expanded') === 'false');
+    });
+
+    menu.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (!link || !mobile.matches) return;
+        setMenu(false);
+        const section = document.getElementById(link.hash.slice(1));
+        if (section) {
+            section.tabIndex = -1;
+            section.focus({ preventScroll: true });
         }
     });
-}, {
-    threshold: 0.1
-});
 
-revealElements.forEach((el) => revealOnScroll.observe(el));
+    header.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || !menu.classList.contains('is-open')) return;
+        setMenu(false);
+        toggle.focus();
+    });
 
-/* =========================================
-   INIZIALIZZAZIONE SMOOTH SCROLL (LENIS)
-   ========================================= */
-const lenis = new Lenis({
-    duration: 1.5, 
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-    smooth: true,
-    mouseMultiplier: 1, 
-});
-
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
-/* =========================================
-   FIX INFALLIBILE: ANCORE INVISIBILI
-   ========================================= */
-document.querySelectorAll('.nav-menu a[href^="#"]').forEach(anchor => {
-    const targetId = anchor.getAttribute('href');
-    const targetSection = document.querySelector(targetId);
-
-    if (targetSection) {
-        // 1. Creiamo un "faro" invisibile nella pagina
-        // Questo elemento NON è sticky, quindi la sua posizione fisica è assoluta e invariabile
-        const anchorPoint = document.createElement('div');
-        anchorPoint.style.display = 'block';
-        anchorPoint.style.height = '0';
-        anchorPoint.style.width = '0';
-        anchorPoint.style.visibility = 'hidden';
-        
-        // Lo inseriamo nel codice HTML esattamente un millimetro prima della sezione reale
-        targetSection.parentNode.insertBefore(anchorPoint, targetSection);
-
-        // 2. Comportamento al click sulla navbar
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault(); 
-            
-            // Chiudi il menu a tendina se si è su smartphone
-            if (navMenu && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                if(menuIcon && menuIcon.length >= 3) {
-                    menuIcon[0].style.transform = 'none';
-                    menuIcon[1].style.opacity = '1';
-                    menuIcon[2].style.transform = 'none';
-                }
-            }
-
-            // 3. Diciamo a Lenis di scorrere verso il faro invisibile, 
-            // ignorando completamente la sezione sticky buggata!
-            // L'offset -80 serve a lasciare lo spazio per la barra bianca del menu (header).
-            lenis.scrollTo(anchorPoint, {
-                offset: -80, 
-                duration: 1.5
-            });
-        });
-    }
-});
+    mobile.addEventListener('change', () => setMenu(false));
+})();
